@@ -30,7 +30,8 @@ const AppRoutesConfig = {
         },
         showIcon: true,
         labelStyle: {
-            fontSize: 14
+            fontSize: 14,
+            marginVertical: 0
         },
         style: {
             backgroundColor: '#fff',
