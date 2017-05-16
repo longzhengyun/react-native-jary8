@@ -4,6 +4,7 @@ import { ScrollView, View, Text, Image } from 'react-native';
 
 import { MainStyles } from '../styles/appStyles';
 import Header from '../components/header';
+import Menu from '../components/menu';
 
 class WebsiteScreen extends Component {
     static navigationOptions = {
@@ -13,10 +14,23 @@ class WebsiteScreen extends Component {
         )
     }
 
+    constructor(props){
+        super(props);
+        this.state = {
+            headerDdta: {
+                title: '网站推荐'
+            },
+            menuData: {
+                text: ['全部', '技术', '工具', '其他']
+            }
+        }
+    }
+
     render() {
         return (
             <View>
-                <Header title="网站推荐" />
+                <Header data={this.state.headerDdta} />
+                <Menu data={this.state.menuData} />
                 <ScrollView style={MainStyles.sectionWrap}>
                     
                 </ScrollView>

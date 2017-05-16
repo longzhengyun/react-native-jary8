@@ -4,6 +4,7 @@ import { ScrollView, View, Text, Image } from 'react-native';
 
 import { MainStyles } from '../styles/appStyles';
 import Header from '../components/header';
+import Menu from '../components/menu';
 
 class ArticleScreen extends Component {
     static navigationOptions = {
@@ -13,10 +14,23 @@ class ArticleScreen extends Component {
         )
     }
 
+    constructor(props){
+        super(props);
+        this.state = {
+            headerDdta: {
+                title: '前端文章'
+            },
+            menuData: {
+                text: ['全部', 'HTML', 'CSS', 'JavaScript', '杂谈']
+            }
+        }
+    }
+
     render() {
         return (
             <View>
-                <Header title="前端文章" />
+                <Header data={this.state.headerDdta} />
+                <Menu data={this.state.menuData} />
                 <ScrollView style={MainStyles.sectionWrap}>
                     
                 </ScrollView>

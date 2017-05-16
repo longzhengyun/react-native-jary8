@@ -13,10 +13,19 @@ class MyScreen extends Component {
         )
     }
 
+    constructor(props){
+        super(props);
+        this.state = {
+            headerDdta: {
+                title: '我的'
+            }
+        }
+    }
+
     render() {
         return (
             <View>
-                <Header title="我的" />
+                <Header data={this.state.headerDdta} />
                 <ScrollView style={MainStyles.sectionWrap}>
                     
                 </ScrollView>

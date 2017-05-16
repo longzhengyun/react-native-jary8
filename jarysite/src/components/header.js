@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         return (
             <View style={HeaderStyles.header}>
-                <Text style={HeaderStyles.headerText}>{this.props.title}</Text>
+                <Text style={HeaderStyles.headerText}>{this.props.data.title}</Text>
             </View>
         )
     }

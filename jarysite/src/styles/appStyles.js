@@ -30,6 +30,26 @@ const HeaderStyles = StyleSheet.create({
     }
 });
 
+const MenuStyles = StyleSheet.create({
+    menu: {
+        height: PR * 48,
+        backgroundColor: '#fff',
+        borderBottomWidth: 1,
+        borderBottomColor: '#d4d4d4'
+    },
+    menuList: {
+        // height: PR * 48,
+        // flexDirection: 'row',
+        // flexWrap: 'wrap',
+        alignItems: 'center'
+    },
+    listItem: {
+        paddingHorizontal: PR * 15,
+        fontSize: PR * 15,
+        color: '#333'
+    }
+});
+
 const HomeStyles = StyleSheet.create({
     homeBanner: {
         backgroundColor: '#fff',
@@ -110,4 +130,4 @@ const ListModeStyles1 = StyleSheet.create({
     }
 });
 
-module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, HomeStyles, ListModeStyles1 };
+module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, HomeStyles, ListModeStyles1 };
