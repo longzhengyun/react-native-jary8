@@ -32,21 +32,21 @@ const HeaderStyles = StyleSheet.create({
 
 const MenuStyles = StyleSheet.create({
     menu: {
-        height: PR * 48,
         backgroundColor: '#fff',
+    },
+    menuList: {
+    },
+    listItem: {
+        paddingVertical: PR * 15,
+        fontSize: PR * 15,
+        color: '#333',
+        textAlign: 'center',
         borderBottomWidth: 1,
         borderBottomColor: '#d4d4d4'
     },
-    menuList: {
-        // height: PR * 48,
-        // flexDirection: 'row',
-        // flexWrap: 'wrap',
-        alignItems: 'center'
-    },
-    listItem: {
-        paddingHorizontal: PR * 15,
-        fontSize: PR * 15,
-        color: '#333'
+    curItem: {
+        borderBottomColor: '#c00',
+        color: '#c00'
     }
 });
 
