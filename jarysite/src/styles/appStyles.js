@@ -32,11 +32,10 @@ const HeaderStyles = StyleSheet.create({
 
 const MenuStyles = StyleSheet.create({
     menu: {
+        flexDirection: 'row',
         backgroundColor: '#fff',
     },
-    menuList: {
-    },
-    listItem: {
+    menuItem: {
         paddingVertical: PR * 15,
         fontSize: PR * 15,
         color: '#333',

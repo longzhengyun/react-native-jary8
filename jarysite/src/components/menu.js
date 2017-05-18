@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { View, ListView, Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import { SreenWidth, MenuStyles } from '../styles/appStyles';
 
 class Menu extends Component {
     constructor(props){
         super(props);
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
-            dataSource: ds.cloneWithRows(this.props.data.text),
-            length: this.props.data.text.length,
+            data: this.props.data,
+            length: this.props.data.length,
             current: 0
         }
     }
@@ -18,13 +17,18 @@ class Menu extends Component {
         this.setState({
             current: index
         })
-        alert(this.state.current);
     }
 
     render() {
         return (
             <View style={MenuStyles.menu}>
-                <ListView contentContainerStyle={MenuStyles.menuList} dataSource={this.state.dataSource} horizontal={true} showsHorizontalScrollIndicator={false} renderRow={(rowData, sectionID, rowID) => <Text numberOfLines={1} onPress={() => this.changeCurrent(rowID)} style={[MenuStyles.listItem, this.state.current == rowID ? MenuStyles.curItem : '', {width: SreenWidth / this.state.length}]}>{rowData}</Text>} />
+                {
+                    this.state.data.map((text, index) => {
+                        return (
+                            <Text key={index} numberOfLines={1} onPress={() => this.changeCurrent(index)} style={[MenuStyles.menuItem, this.state.current == index ? MenuStyles.curItem : '', {width: SreenWidth / this.state.length}]}>{text}</Text>
+                        )
+                    })
+                }
             </View>
         )
     }

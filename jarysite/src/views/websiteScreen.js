@@ -17,12 +17,8 @@ class WebsiteScreen extends Component {
     constructor(props){
         super(props);
         this.state = {
-            headerDdta: {
-                title: '网站推荐'
-            },
-            menuData: {
-                text: ['全部', '技术', '工具', '其他']
-            }
+            headerDdta: '网站推荐',
+            menuData: ['全部', '技术', '工具', '其他']
         }
     }
 

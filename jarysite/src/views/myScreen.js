@@ -16,9 +16,7 @@ class MyScreen extends Component {
     constructor(props){
         super(props);
         this.state = {
-            headerDdta: {
-                title: '我的'
-            }
+            headerDdta: '我的'
         }
     }
 

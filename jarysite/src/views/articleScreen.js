@@ -17,12 +17,8 @@ class ArticleScreen extends Component {
     constructor(props){
         super(props);
         this.state = {
-            headerDdta: {
-                title: '前端文章'
-            },
-            menuData: {
-                text: ['全部', 'HTML', 'CSS', 'JavaScript', '杂谈']
-            }
+            headerDdta: '前端文章',
+            menuData: ['全部', 'HTML', 'CSS', 'JavaScript', '杂谈']
         }
     }
 
