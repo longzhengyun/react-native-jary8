@@ -3,8 +3,8 @@ import { TabNavigator } from 'react-navigation';
 import { ScrollView, View, Text, Image } from 'react-native';
 
 import { MainStyles } from '../styles/appStyles';
-import Header from '../components/header';
-import Menu from '../components/menu';
+import HeaderModel from '../components/headerModel';
+import MenuModel from '../components/menuModel';
 
 class WebsiteScreen extends Component {
     static navigationOptions = {
@@ -24,9 +24,9 @@ class WebsiteScreen extends Component {
 
     render() {
         return (
-            <View>
-                <Header data={this.state.headerDdta} />
-                <Menu data={this.state.menuData} />
+            <View style={MainStyles.sectionWrap}>
+                <HeaderModel data={this.state.headerDdta} />
+                <MenuModel data={this.state.menuData} />
                 <ScrollView style={MainStyles.sectionWrap}>
                     
                 </ScrollView>

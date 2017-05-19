@@ -16,14 +16,14 @@ const MainStyles = StyleSheet.create({
 });
 
 const HeaderStyles = StyleSheet.create({
-    header: {
+    headerModel: {
         height: PR * 50,
         backgroundColor: '#eee',
         borderBottomWidth: 1,
         borderBottomColor: '#d4d4d4',
         justifyContent: 'center'
     },
-    headerText: {
+    modelText: {
         fontSize: PR * 20,
         color: '#333',
         textAlign: 'center'
@@ -31,11 +31,11 @@ const HeaderStyles = StyleSheet.create({
 });
 
 const MenuStyles = StyleSheet.create({
-    menu: {
+    menuModel: {
         flexDirection: 'row',
         backgroundColor: '#fff',
     },
-    menuItem: {
+    modelItem: {
         paddingVertical: PR * 15,
         fontSize: PR * 15,
         color: '#333',
@@ -43,9 +43,83 @@ const MenuStyles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#d4d4d4'
     },
-    curItem: {
+    modelItemCur: {
         borderBottomColor: '#c00',
         color: '#c00'
+    }
+});
+
+const ListStyles = StyleSheet.create({
+    listModel: {
+        marginTop: PR * 10
+    },
+    modelTitle: {
+        borderBottomWidth: 1,
+        borderColor: '#ccc',
+        backgroundColor: '#fff',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: PR * 8,
+        paddingHorizontal: PR * 10
+    },
+    modelTitleText: {
+        fontSize: PR * 17,
+        color: '#333'
+    },
+    modelTitleMore: {
+        fontSize: PR * 12,
+        color: '#999'
+    },
+    modelCont: {
+        paddingVertical: PR * 10,
+        paddingHorizontal: PR * 5,
+        backgroundColor: '#fff'
+    },
+    modelContList: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center'
+    },
+    modelContItem: {
+        width: SreenWidth / 2 - PR * 5,
+        padding: PR * 8,
+        color: '#333'
+    }
+});
+
+const FormStyles = StyleSheet.create({
+    formModel: {
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#ccc',
+        backgroundColor: '#fff',
+        paddingHorizontal: PR * 10,
+        marginBottom: PR * 10
+    },
+    modelItem: {
+        height: PR * 48,
+        borderBottomWidth: 1,
+        borderColor: '#ddd',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    modelName: {
+        fontSize: PR * 15,
+        color: '#82898d'
+    },
+    modelCont: {
+        flex: 1,
+        fontSize: PR * 15,
+        color: '#333'
+    },
+    modelImage: {
+        width: PR * 43,
+        height: PR * 43
+    },
+    modelBorderBottomHide: {
+        borderBottomWidth: 0
     }
 });
 
@@ -91,42 +165,4 @@ const HomeStyles = StyleSheet.create({
     }
 });
 
-const ListModeStyles1 = StyleSheet.create({
-    listMode: {
-        marginTop: PR * 10
-    },
-    modeTitle: {
-        marginBottom: 1,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: PR * 8,
-        paddingHorizontal: PR * 10
-    },
-    titleText: {
-        fontSize: PR * 17,
-        color: '#333'
-    },
-    titleMore: {
-        fontSize: PR * 12,
-        color: '#999'
-    },
-    modeCont: {
-        paddingVertical: PR * 10,
-        paddingHorizontal: PR * 5,
-        backgroundColor: '#fff'
-    },
-    contList: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center'
-    },
-    listItem: {
-        width: SreenWidth / 2 - PR * 5,
-        padding: PR * 8,
-        color: '#333'
-    }
-});
-
-module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, HomeStyles, ListModeStyles1 };
+module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, ListStyles, FormStyles, HomeStyles };

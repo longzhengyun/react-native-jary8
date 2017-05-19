@@ -3,7 +3,7 @@ import { TabNavigator } from 'react-navigation';
 import { ScrollView, View, Text, Image } from 'react-native';
 
 import { MainStyles, HomeStyles } from '../styles/appStyles';
-import ListMode1 from '../components/listMode1';
+import ListModel from '../components/listModel';
 
 //菜单配置信息
 const navConfig = {
@@ -23,13 +23,13 @@ class HomeScreen extends Component {
         const articleData = require('../data/articleData.json');
         const websiteData = require('../data/websiteData.json');
         this.state = {
-            articleMode: {
-                modeTitle: '推荐文章',
-                modeData: articleData
+            articleModel: {
+                modelTitle: '推荐文章',
+                modelData: articleData
             },
-            websiteMode: {
-                modeTitle: '推荐网站',
-                modeData: websiteData
+            websiteModel: {
+                modelTitle: '推荐网站',
+                modelData: websiteData
             }
         }
     }
@@ -47,8 +47,8 @@ class HomeScreen extends Component {
                     </View>
                 </View>
                 <ScrollView style={MainStyles.sectionWrap}>
-                    <ListMode1 data={this.state.articleMode} />
-                    <ListMode1 data={this.state.websiteMode} />
+                    <ListModel data={this.state.articleModel} />
+                    <ListModel data={this.state.websiteModel} />
                 </ScrollView>
             </View>
         )

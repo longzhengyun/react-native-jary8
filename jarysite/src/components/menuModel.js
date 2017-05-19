@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 import { SreenWidth, MenuStyles } from '../styles/appStyles';
 
-class Menu extends Component {
+class MenuModel extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -21,11 +21,11 @@ class Menu extends Component {
 
     render() {
         return (
-            <View style={MenuStyles.menu}>
+            <View style={MenuStyles.menuModel}>
                 {
                     this.state.data.map((text, index) => {
                         return (
-                            <Text key={index} numberOfLines={1} onPress={() => this.changeCurrent(index)} style={[MenuStyles.menuItem, this.state.current == index ? MenuStyles.curItem : '', {width: SreenWidth / this.state.length}]}>{text}</Text>
+                            <Text key={index} numberOfLines={1} onPress={() => this.changeCurrent(index)} style={[MenuStyles.modelItem, this.state.current == index ? MenuStyles.modelItemCur : '', {width: SreenWidth / this.state.length}]}>{text}</Text>
                         )
                     })
                 }
@@ -34,4 +34,4 @@ class Menu extends Component {
     }
 }
 
-module.exports = Menu;
+module.exports = MenuModel;
