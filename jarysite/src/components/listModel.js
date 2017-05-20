@@ -15,13 +15,7 @@ class ListModel extends Component {
     render() {
         return (
             <View style={ListStyles.listModel}>
-                <View style={ListStyles.modelTitle}>
-                    <Text style={ListStyles.modelTitleText}>{this.props.data.modelTitle}</Text>
-                    <Text style={ListStyles.modelTitleMore}>MORE</Text>
-                </View>
-                <View style={ListStyles.modelCont}>
-                    <ListView contentContainerStyle={ListStyles.modelContList} dataSource={this.state.dataSource} renderRow={(rowData) => <Text numberOfLines={1} style={ListStyles.modelContItem}>{rowData.title}</Text>} />
-                </View>
+                <ListView contentContainerStyle={ListStyles.modelContList} dataSource={this.state.dataSource} renderRow={(rowData) => <Text numberOfLines={1} style={ListStyles.modelContItem}>{rowData.title}</Text>} />
             </View>
         )
     }

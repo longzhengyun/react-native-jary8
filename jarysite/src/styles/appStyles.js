@@ -49,8 +49,8 @@ const MenuStyles = StyleSheet.create({
     }
 });
 
-const ListStyles = StyleSheet.create({
-    listModel: {
+const RecommendStyles = StyleSheet.create({
+    recommendModel: {
         marginTop: PR * 10
     },
     modelTitle: {
@@ -165,4 +165,4 @@ const HomeStyles = StyleSheet.create({
     }
 });
 
-module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, ListStyles, FormStyles, HomeStyles };
+module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, HomeStyles };

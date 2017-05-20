@@ -3,7 +3,7 @@ import { TabNavigator } from 'react-navigation';
 import { ScrollView, View, Text, Image } from 'react-native';
 
 import { MainStyles, HomeStyles } from '../styles/appStyles';
-import ListModel from '../components/listModel';
+import RecommendModel from '../components/recommendModel';
 
 //菜单配置信息
 const navConfig = {
@@ -47,8 +47,8 @@ class HomeScreen extends Component {
                     </View>
                 </View>
                 <ScrollView style={MainStyles.sectionWrap}>
-                    <ListModel data={this.state.articleModel} />
-                    <ListModel data={this.state.websiteModel} />
+                    <RecommendModel data={this.state.articleModel} />
+                    <RecommendModel data={this.state.websiteModel} />
                 </ScrollView>
             </View>
         )
