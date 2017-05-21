@@ -26,7 +26,7 @@ const HeaderStyles = StyleSheet.create({
     modelText: {
         fontSize: PR * 20,
         color: '#333',
-        textAlign: 'center'
+        fontWeight: 'normal'
     }
 });
 
@@ -98,12 +98,11 @@ const FormStyles = StyleSheet.create({
         marginBottom: PR * 10
     },
     modelItem: {
-        height: PR * 48,
+        paddingVertical: PR * 10,
         borderBottomWidth: 1,
         borderColor: '#ddd',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        justifyContent: 'space-between'
     },
     modelName: {
         fontSize: PR * 15,
@@ -114,12 +113,54 @@ const FormStyles = StyleSheet.create({
         fontSize: PR * 15,
         color: '#333'
     },
+    modelBtn: {
+        position: 'absolute',
+        top: PR * 14,
+        right: 0
+    },
     modelImage: {
-        width: PR * 43,
-        height: PR * 43
+        width: PR * 15,
+        height: PR * 15
     },
     modelBorderBottomHide: {
         borderBottomWidth: 0
+    }
+});
+
+const ListStyles = StyleSheet.create({
+    listModel: {
+    },
+    modelItem: {
+        marginTop: PR * 10,
+        paddingVertical: PR * 5,
+        paddingHorizontal: PR * 10,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#dfdfdf',
+        backgroundColor: '#fff'
+    },
+    modelTitle: {
+        flex: 1,
+        fontSize: PR * 16,
+        color: '#333'
+    },
+    modelInfo: {
+        marginBottom: PR * 5,
+        lineHeight: 20,
+        fontSize: PR * 12,
+        color: '#666'
+    },
+    modelOther: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    modelTag: {
+        fontSize: PR * 12,
+        borderWidth: 1,
+        marginLeft: PR * 10,
+        paddingHorizontal: PR * 5,
+        borderRadius: PR * 2.5
     }
 });
 
@@ -165,4 +206,4 @@ const HomeStyles = StyleSheet.create({
     }
 });
 
-module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, HomeStyles };
+module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, ListStyles, HomeStyles };

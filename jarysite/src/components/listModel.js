@@ -8,15 +8,21 @@ class ListModel extends Component {
         super(props);
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
-            dataSource: ds.cloneWithRows(this.props.data.modelData)
+            dataSource: ds.cloneWithRows(this.props.data)
         }
     }
 
     render() {
         return (
-            <View style={ListStyles.listModel}>
-                <ListView contentContainerStyle={ListStyles.modelContList} dataSource={this.state.dataSource} renderRow={(rowData) => <Text numberOfLines={1} style={ListStyles.modelContItem}>{rowData.title}</Text>} />
-            </View>
+            <ListView contentContainerStyle={ListStyles.listModel} dataSource={this.state.dataSource} renderRow={(rowData) => 
+                <View style={ListStyles.modelItem}>
+                    <View style={ListStyles.modelOther}>
+                        <Text numberOfLines={1} style={ListStyles.modelTitle}>{rowData.title}</Text>
+                        <Text style={[ListStyles.modelTag, {borderColor:rowData.color}, {color:rowData.color}]}>{rowData.category}</Text>
+                    </View>
+                    <Text numberOfLines={3} style={ListStyles.modelInfo}>{rowData.info}</Text>
+                </View>
+            } />
         )
     }
 }

@@ -8,13 +8,8 @@ class FormModel extends Component {
         super(props);
         this.state = {
             data: this.props.data.value,
-            per: this.props.data.per,
-            link: false
+            per: this.props.data.per
         }
-    }
-
-    pushTarget(index){
-        alert(index);
     }
 
     render() {
@@ -28,7 +23,7 @@ class FormModel extends Component {
                                 <Text style={FormStyles.modelCont}>{value.text}</Text>
                                 {
                                     value.link ? 
-                                    <Text onPress={() => this.pushTarget(index)}>
+                                    <Text style={FormStyles.modelBtn} onPress={() => this.props.navigation.navigate(value.link)}>
                                         <Image source={require('../images/icon_form.png')} style={FormStyles.modelImage} />
                                     </Text> : null
                                 }

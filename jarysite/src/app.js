@@ -1,12 +1,14 @@
 import React from 'react';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 
 import HomeScreen from './views/homeScreen';
 import ArticleScreen from './views/articleScreen';
 import WebsiteScreen from './views/websiteScreen';
 import MyScreen from './views/myScreen';
 
-const AppRoutes = {
+import AboutScreen from './views/aboutScreen';
+
+const TabRoutes = {
     Home: {
         screen: HomeScreen
     },
@@ -21,7 +23,7 @@ const AppRoutes = {
     }
 };
 
-const AppRoutesConfig = {
+const TabRoutesConfig = {
     tabBarOptions: {
         activeTintColor: '#c00',
         inactiveTintColor: '#333',
@@ -34,9 +36,9 @@ const AppRoutesConfig = {
             marginVertical: 0
         },
         style: {
-            backgroundColor: '#fff',
             borderTopWidth: 1,
             borderTopColor: '#d4d4d4',
+            backgroundColor: '#fff'
         }
     },
     tabBarPosition: 'bottom',
@@ -45,9 +47,25 @@ const AppRoutesConfig = {
     animationEnabled: false
 };
 
-const App = TabNavigator(
-    AppRoutes,
-    AppRoutesConfig
+const MainTab = TabNavigator(
+    TabRoutes,
+    TabRoutesConfig
 );
+
+const StackRoutes = {
+    Main: { screen: MainTab },
+    About: { screen: AboutScreen }
+};
+
+const StackRoutesConfig = {
+    headerMode: 'float'
+};
+
+const MainStack = StackNavigator(
+    StackRoutes,
+    StackRoutesConfig
+);
+
+const App = MainStack;
 
 export default App;

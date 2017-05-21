@@ -17,7 +17,7 @@ class RecommendModel extends Component {
             <View style={RecommendStyles.recommendModel}>
                 <View style={RecommendStyles.modelTitle}>
                     <Text style={RecommendStyles.modelTitleText}>{this.props.data.modelTitle}</Text>
-                    <Text style={RecommendStyles.modelTitleMore}>MORE</Text>
+                    <Text style={RecommendStyles.modelTitleMore} onPress={() => this.props.navigation.navigate(this.props.data.modelLink)}>MORE</Text>
                 </View>
                 <View style={RecommendStyles.modelCont}>
                     <ListView contentContainerStyle={RecommendStyles.modelContList} dataSource={this.state.dataSource} renderRow={(rowData) => <Text numberOfLines={1} style={RecommendStyles.modelContItem}>{rowData.title}</Text>} />
