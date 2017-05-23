@@ -1,8 +1,15 @@
-import {Dimensions, PixelRatio, StyleSheet} from 'react-native';
+import {Platform, Dimensions, PixelRatio, StyleSheet} from 'react-native';
 
 const SreenWidth = Dimensions.get('window').width;
 const SreenHeight = Dimensions.get('window').height;
-const PR = PixelRatio.get();
+
+let PR;
+
+if (Platform.OS === 'ios') {
+    PR = SreenWidth / 375;
+} else {
+    PR = SreenWidth / 360;
+}
 
 const MainStyles = StyleSheet.create({
     sectionWrap: {

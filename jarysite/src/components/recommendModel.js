@@ -6,21 +6,22 @@ import { RecommendStyles } from '../styles/appStyles';
 class RecommendModel extends Component {
     constructor(props){
         super(props);
+
+        this.data = this.props.data;
+
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        this.state = {
-            dataSource: ds.cloneWithRows(this.props.data.modelData)
-        }
+        this.dataSource = ds.cloneWithRows(this.props.data.modelData);
     }
 
     render() {
         return (
             <View style={RecommendStyles.recommendModel}>
                 <View style={RecommendStyles.modelTitle}>
-                    <Text style={RecommendStyles.modelTitleText}>{this.props.data.modelTitle}</Text>
-                    <Text style={RecommendStyles.modelTitleMore} onPress={() => this.props.navigation.navigate(this.props.data.modelLink)}>MORE</Text>
+                    <Text style={RecommendStyles.modelTitleText}>{this.data.modelTitle}</Text>
+                    <Text style={RecommendStyles.modelTitleMore} onPress={() => this.props.navigation.navigate(this.data.modelLink)}>MORE</Text>
                 </View>
                 <View style={RecommendStyles.modelCont}>
-                    <ListView contentContainerStyle={RecommendStyles.modelContList} dataSource={this.state.dataSource} renderRow={(rowData) => <Text numberOfLines={1} style={RecommendStyles.modelContItem}>{rowData.title}</Text>} />
+                    <ListView contentContainerStyle={RecommendStyles.modelContList} dataSource={this.dataSource} renderRow={(rowData) => <Text numberOfLines={1} style={RecommendStyles.modelContItem}>{rowData.title}</Text>} />
                 </View>
             </View>
         )

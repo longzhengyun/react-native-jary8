@@ -6,15 +6,14 @@ import { ListStyles } from '../styles/appStyles';
 class ListModel extends Component {
     constructor(props){
         super(props);
+
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        this.state = {
-            dataSource: ds.cloneWithRows(this.props.data)
-        }
+        this.dataSource = ds.cloneWithRows(this.props.data);
     }
 
     render() {
         return (
-            <ListView contentContainerStyle={ListStyles.listModel} dataSource={this.state.dataSource} renderRow={(rowData) => 
+            <ListView contentContainerStyle={ListStyles.listModel} dataSource={this.dataSource} renderRow={(rowData) => 
                 <View style={ListStyles.modelItem}>
                     <View style={ListStyles.modelOther}>
                         <Text numberOfLines={1} style={ListStyles.modelTitle}>{rowData.title}</Text>

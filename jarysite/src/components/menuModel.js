@@ -6,16 +6,18 @@ import { SreenWidth, MenuStyles } from '../styles/appStyles';
 class MenuModel extends Component {
     constructor(props){
         super(props);
+
+        this.data = this.props.data;
+        this.current = 0;
         this.state = {
-            data: this.props.data,
-            length: this.props.data.length,
-            current: 0
+            current: false
         }
     }
 
     changeCurrent(index){
+        this.current = index;
         this.setState({
-            current: index
+            current: !this.state.current
         })
     }
 
@@ -23,9 +25,9 @@ class MenuModel extends Component {
         return (
             <View style={MenuStyles.menuModel}>
                 {
-                    this.state.data.map((text, index) => {
+                    this.data.map((text, index) => {
                         return (
-                            <Text key={index} numberOfLines={1} onPress={() => this.changeCurrent(index)} style={[MenuStyles.modelItem, this.state.current == index ? MenuStyles.modelItemCur : '', {width: SreenWidth / this.state.length}]}>{text}</Text>
+                            <Text key={index} numberOfLines={1} onPress={() => this.changeCurrent(index)} style={[MenuStyles.modelItem, this.current == index ? MenuStyles.modelItemCur : '', {width: SreenWidth / this.data.length}]}>{text}</Text>
                         )
                     })
                 }

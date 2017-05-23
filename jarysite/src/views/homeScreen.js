@@ -15,20 +15,41 @@ class HomeScreen extends Component {
 
     constructor(props){
         super(props);
-        const articleData = require('../data/articleData.json');
-        const websiteData = require('../data/websiteData.json');
+
         this.state = {
-            articleModel: {
-                modelTitle: '推荐文章',
-                modelLink: 'Article',
-                modelData: articleData
-            },
-            websiteModel: {
-                modelTitle: '推荐网站',
-                modelLink: 'Website',
-                modelData: websiteData
-            }
+            data: false
         }
+
+        // const articleData = require('../data/articleData.json');
+        const websiteData = require('../data/websiteData.json');
+
+        this.articleModel = {
+            modelTitle: '推荐文章',
+            modelLink: 'Article',
+            modelData: {}
+        };
+        this.websiteModel = {
+            modelTitle: '推荐网站',
+            modelLink: 'Website',
+            modelData: websiteData
+        };
+    }
+
+    //组建渲染后调用
+    componentDidMount(){
+        fetch('http://localhost:8081/src/data/db_config.php?id=article_data')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                if(responseJson){
+                    this.articleModel.modelData = responseJson;
+                    this.setState({
+                        data: !this.state.data
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     render() {
@@ -44,8 +65,8 @@ class HomeScreen extends Component {
                     </View>
                 </View>
                 <ScrollView style={MainStyles.sectionWrap}>
-                    <RecommendModel data={this.state.articleModel} navigation={this.props.navigation} />
-                    <RecommendModel data={this.state.websiteModel} navigation={this.props.navigation} />
+                    <RecommendModel data={this.articleModel} navigation={this.props.navigation} />
+                    <RecommendModel data={this.websiteModel} navigation={this.props.navigation} />
                 </ScrollView>
             </View>
         )
