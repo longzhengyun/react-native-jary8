@@ -20,13 +20,13 @@ class HomeScreen extends Component {
             data: false
         }
 
-        // const articleData = require('../data/articleData.json');
+        const articleData = require('../data/articleData.json');
         const websiteData = require('../data/websiteData.json');
 
         this.articleModel = {
             modelTitle: '推荐文章',
             modelLink: 'Article',
-            modelData: {}
+            modelData: articleData
         };
         this.websiteModel = {
             modelTitle: '推荐网站',
@@ -37,19 +37,19 @@ class HomeScreen extends Component {
 
     //组建渲染后调用
     componentDidMount(){
-        fetch('http://localhost:8081/src/data/db_config.php?id=article_data')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                if(responseJson){
-                    this.articleModel.modelData = responseJson;
-                    this.setState({
-                        data: !this.state.data
-                    });
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        // fetch('http://localhost:8081/src/data/db_config.php?id=article_data')
+        //     .then((response) => response.json())
+        //     .then((responseJson) => {
+        //         if(responseJson){
+        //             this.articleModel.modelData = responseJson;
+        //             this.setState({
+        //                 data: !this.state.data
+        //             });
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.error(error);
+        //     });
     }
 
     render() {

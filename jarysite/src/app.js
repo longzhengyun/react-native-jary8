@@ -1,4 +1,3 @@
-import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
 import HomeScreen from './views/homeScreen';
@@ -47,7 +46,7 @@ const TabRoutesConfig = {
     animationEnabled: false
 };
 
-const MainTab = TabNavigator(
+const MainTab = new TabNavigator(
     TabRoutes,
     TabRoutesConfig
 );
@@ -61,7 +60,7 @@ const StackRoutesConfig = {
     headerMode: 'float'
 };
 
-const MainStack = StackNavigator(
+const MainStack = new StackNavigator(
     StackRoutes,
     StackRoutesConfig
 );

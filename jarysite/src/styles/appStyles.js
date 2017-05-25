@@ -1,4 +1,4 @@
-import {Platform, Dimensions, PixelRatio, StyleSheet} from 'react-native';
+import { Platform, Dimensions, StyleSheet } from 'react-native';
 
 const SreenWidth = Dimensions.get('window').width;
 const SreenHeight = Dimensions.get('window').height;
@@ -26,7 +26,7 @@ const HeaderStyles = StyleSheet.create({
     headerModel: {
         height: PR * 50,
         backgroundColor: '#eee',
-        borderBottomWidth: 1,
+        borderBottomWidth: PR * 1,
         borderBottomColor: '#d4d4d4',
         justifyContent: 'center'
     },
@@ -47,7 +47,7 @@ const MenuStyles = StyleSheet.create({
         fontSize: PR * 15,
         color: '#333',
         textAlign: 'center',
-        borderBottomWidth: 1,
+        borderBottomWidth: PR * 1,
         borderBottomColor: '#d4d4d4'
     },
     modelItemCur: {
@@ -58,10 +58,10 @@ const MenuStyles = StyleSheet.create({
 
 const RecommendStyles = StyleSheet.create({
     recommendModel: {
-        marginTop: PR * 10
+        marginTop: PR * 5
     },
     modelTitle: {
-        borderBottomWidth: 1,
+        borderBottomWidth: PR * 1,
         borderColor: '#ccc',
         backgroundColor: '#fff',
         flexDirection: 'row',
@@ -89,7 +89,7 @@ const RecommendStyles = StyleSheet.create({
         alignItems: 'center'
     },
     modelContItem: {
-        width: SreenWidth / 2 - PR * 5,
+        width: (SreenWidth / 2) - (PR * 5),
         padding: PR * 8,
         color: '#333'
     }
@@ -97,16 +97,16 @@ const RecommendStyles = StyleSheet.create({
 
 const FormStyles = StyleSheet.create({
     formModel: {
-        borderTopWidth: 1,
-        borderBottomWidth: 1,
+        borderTopWidth: PR * 1,
+        borderBottomWidth: PR * 1,
         borderColor: '#ccc',
         backgroundColor: '#fff',
         paddingHorizontal: PR * 10,
-        marginBottom: PR * 10
+        marginBottom: PR * 5
     },
     modelItem: {
         paddingVertical: PR * 10,
-        borderBottomWidth: 1,
+        borderBottomWidth: PR * 1,
         borderColor: '#ddd',
         flexDirection: 'row',
         justifyContent: 'space-between'
@@ -126,8 +126,8 @@ const FormStyles = StyleSheet.create({
         right: 0
     },
     modelImage: {
-        width: PR * 15,
-        height: PR * 15
+        width: PR * 40,
+        height: PR * 40
     },
     modelBorderBottomHide: {
         borderBottomWidth: 0
@@ -138,11 +138,11 @@ const ListStyles = StyleSheet.create({
     listModel: {
     },
     modelItem: {
-        marginTop: PR * 10,
+        marginTop: PR * 5,
         paddingVertical: PR * 5,
         paddingHorizontal: PR * 10,
-        borderTopWidth: 1,
-        borderBottomWidth: 1,
+        borderTopWidth: PR * 1,
+        borderBottomWidth: PR * 1,
         borderColor: '#dfdfdf',
         backgroundColor: '#fff'
     },
@@ -164,7 +164,7 @@ const ListStyles = StyleSheet.create({
     },
     modelTag: {
         fontSize: PR * 12,
-        borderWidth: 1,
+        borderWidth: PR * 1,
         marginLeft: PR * 10,
         paddingHorizontal: PR * 5,
         borderRadius: PR * 2.5
@@ -184,7 +184,7 @@ const HomeStyles = StyleSheet.create({
         marginBottom: PR * 30
     },
     homeSearch: {
-        width: SreenWidth - PR * 38,
+        width: SreenWidth - (PR * 38),
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: PR * 5,
@@ -193,7 +193,7 @@ const HomeStyles = StyleSheet.create({
         paddingVertical: PR * 5,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems:'center'
+        alignItems: 'center'
     },
     searchText: {
         fontSize: PR * 15
