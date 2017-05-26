@@ -16,6 +16,9 @@ const MainStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#eee'
     },
+    iconFont: {
+        fontFamily: 'icomoon'
+    },
     navIcon: {
         width: PR * 24,
         height: PR * 24
@@ -208,8 +211,7 @@ const HomeStyles = StyleSheet.create({
         alignItems: 'center'
     },
     searchIcon: {
-        width: PR * 24,
-        height: PR * 24
+        fontSize: PR * 20
     }
 });
 

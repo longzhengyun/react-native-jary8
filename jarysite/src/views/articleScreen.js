@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { ScrollView, View, Text, Image } from 'react-native';
 
-import { MainStyles, HeaderStyles } from '../styles/appStyles';
+import { MainStyles, HeaderStyles } from '../assets/styles/appStyles';
 import MenuModel from '../components/menuModel';
 import ListModel from '../components/listModel';
 
@@ -13,7 +13,7 @@ class ArticleScreen extends Component {
         headerTitleStyle: HeaderStyles.modelText,
         tabBarLabel: '文章',
         tabBarIcon: ({ tintColor }) => (
-            <Image source={require('../images/icon_article.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
+            <Image source={require('../assets/images/icon_article.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
         )
     }
 

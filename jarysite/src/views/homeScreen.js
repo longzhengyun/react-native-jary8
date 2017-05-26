@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
 
-import { MainStyles, HomeStyles } from '../styles/appStyles';
+import { MainStyles, HomeStyles } from '../assets/styles/appStyles';
 import RecommendModel from '../components/recommendModel';
 
 class HomeScreen extends Component {
@@ -9,7 +9,7 @@ class HomeScreen extends Component {
         header: null,
         tabBarLabel: '首页',
         tabBarIcon: ({ tintColor }) => (
-            <Image source={require('../images/icon_home.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
+            <Image source={require('../assets/images/icon_home.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
         )
     }
 
@@ -35,32 +35,15 @@ class HomeScreen extends Component {
         };
     }
 
-    //组建渲染后调用
-    componentDidMount(){
-        // fetch('http://localhost:8081/src/data/db_config.php?id=article_data')
-        //     .then((response) => response.json())
-        //     .then((responseJson) => {
-        //         if(responseJson){
-        //             this.articleModel.modelData = responseJson;
-        //             this.setState({
-        //                 data: !this.state.data
-        //             });
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
-    }
-
     render() {
         return (
             <View style={MainStyles.sectionWrap}>
                 <View style={HomeStyles.homeBanner}>
-                    <Image source={require('../images/logo.png')} style={HomeStyles.homeLogo} />
+                    <Image source={require('../assets/images/logo.png')} style={HomeStyles.homeLogo} />
                     <View style={HomeStyles.homeSearch}>
                         <Text style={HomeStyles.searchText}>搜索感兴趣的前端文章</Text>
                         <View style={HomeStyles.searchBtn}>
-                            <Image source={require('../images/icon_search.png')} style={HomeStyles.searchIcon} />
+                            <Text style={[MainStyles.iconFont, HomeStyles.searchIcon]}>&#xe986;</Text>
                         </View>
                     </View>
                 </View>

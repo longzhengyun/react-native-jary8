@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-import { SreenWidth, MenuStyles } from '../styles/appStyles';
+import { SreenWidth, MenuStyles } from '../assets/styles/appStyles';
 
 class MenuModel extends Component {
     constructor(props) {

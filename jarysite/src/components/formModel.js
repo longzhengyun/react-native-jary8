@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 
-import { SreenWidth, FormStyles } from '../styles/appStyles';
+import { SreenWidth, FormStyles } from '../assets/styles/appStyles';
 
 class FormModel extends Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class FormModel extends Component {
                                 {
                                     value.link ? 
                                     <Text style={FormStyles.modelBtn} onPress={() => this.navigation.navigate(value.link)}>
-                                        <Image source={require('../images/icon_form.png')} style={FormStyles.modelImage} />
+                                        <Image source={require('../assets/images/icon_form.png')} style={FormStyles.modelImage} />
                                     </Text> : null
                                 }
                                 

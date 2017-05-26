@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
 
-import { MainStyles, HeaderStyles } from '../styles/appStyles';
+import { MainStyles, HeaderStyles } from '../assets/styles/appStyles';
 import FormModel from '../components/formModel';
 
 class AboutScreen extends Component {

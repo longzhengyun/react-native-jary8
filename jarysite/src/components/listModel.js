@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ListView, Text } from 'react-native';
 
-import { ListStyles } from '../styles/appStyles';
+import { ListStyles } from '../assets/styles/appStyles';
 
 class ListModel extends Component {
     constructor(props) {

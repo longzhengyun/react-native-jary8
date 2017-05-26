@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
 
-import { MainStyles, HeaderStyles } from '../styles/appStyles';
+import { MainStyles, HeaderStyles } from '../assets/styles/appStyles';
 import FormModel from '../components/formModel';
 
 class MyScreen extends Component {
@@ -11,7 +11,7 @@ class MyScreen extends Component {
         headerTitleStyle: HeaderStyles.modelText,
         tabBarLabel: '我的',
         tabBarIcon: ({ tintColor }) => (
-            <Image source={require('../images/icon_my.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
+            <Image source={require('../assets/images/icon_my.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
         )
     }
 

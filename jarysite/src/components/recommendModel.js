@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ListView, Text } from 'react-native';
 
-import { RecommendStyles } from '../styles/appStyles';
+import { RecommendStyles } from '../assets/styles/appStyles';
 
 class RecommendModel extends Component {
     constructor(props) {
