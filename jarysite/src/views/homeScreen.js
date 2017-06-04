@@ -9,7 +9,7 @@ class HomeScreen extends Component {
         header: null,
         tabBarLabel: '首页',
         tabBarIcon: ({ tintColor }) => (
-            <Image source={require('../assets/images/icon_home.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
+            <Text style={[MainStyles.iconFont, MainStyles.navIcon, {color: tintColor}]}>&#xe02e;</Text>
         )
     }
 
@@ -43,7 +43,7 @@ class HomeScreen extends Component {
                     <View style={HomeStyles.homeSearch}>
                         <Text style={HomeStyles.searchText}>搜索感兴趣的前端文章</Text>
                         <View style={HomeStyles.searchBtn}>
-                            <Text style={[MainStyles.iconFont, HomeStyles.searchIcon]}>&#xe986;</Text>
+                            <Text style={[MainStyles.iconFont, HomeStyles.searchIcon]}>&#xe03b;</Text>
                         </View>
                     </View>
                 </View>

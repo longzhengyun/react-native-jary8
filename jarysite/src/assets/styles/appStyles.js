@@ -17,11 +17,10 @@ const MainStyles = StyleSheet.create({
         backgroundColor: '#eee'
     },
     iconFont: {
-        fontFamily: 'icomoon'
+        fontFamily: 'bdfont'
     },
     navIcon: {
-        width: PR * 24,
-        height: PR * 24
+        fontSize: PR * 20
     }
 });
 
@@ -37,6 +36,10 @@ const HeaderStyles = StyleSheet.create({
         fontSize: PR * 20,
         color: '#333',
         fontWeight: 'normal'
+    },
+    modelBtn: {
+        fontSize: PR * 24,
+        marginRight: PR * 10
     }
 });
 
@@ -125,12 +128,9 @@ const FormStyles = StyleSheet.create({
     },
     modelBtn: {
         position: 'absolute',
-        top: PR * 14,
-        right: 0
-    },
-    modelImage: {
-        width: PR * 40,
-        height: PR * 40
+        top: PR * 8,
+        right: 0,
+        fontSize: PR * 18
     },
     modelBorderBottomHide: {
         borderBottomWidth: 0
@@ -211,6 +211,7 @@ const HomeStyles = StyleSheet.create({
         alignItems: 'center'
     },
     searchIcon: {
+        lineHeight: 28,
         fontSize: PR * 20
     }
 });

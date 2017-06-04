@@ -13,7 +13,7 @@ class ArticleScreen extends Component {
         headerTitleStyle: HeaderStyles.modelText,
         tabBarLabel: '文章',
         tabBarIcon: ({ tintColor }) => (
-            <Image source={require('../assets/images/icon_article.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
+            <Text style={[MainStyles.iconFont, MainStyles.navIcon, {color: tintColor}]}>&#xe031;</Text>
         )
     }
 

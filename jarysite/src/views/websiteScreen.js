@@ -13,7 +13,7 @@ class WebsiteScreen extends Component {
         headerTitleStyle: HeaderStyles.modelText,
         tabBarLabel: '网站',
         tabBarIcon: ({ tintColor }) => (
-            <Image source={require('../assets/images/icon_website.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
+            <Text style={[MainStyles.iconFont, MainStyles.navIcon, {color: tintColor}]}>&#xe030;</Text>
         )
     }
 

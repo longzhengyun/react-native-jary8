@@ -11,7 +11,7 @@ class MyScreen extends Component {
         headerTitleStyle: HeaderStyles.modelText,
         tabBarLabel: '我的',
         tabBarIcon: ({ tintColor }) => (
-            <Image source={require('../assets/images/icon_my.png')} style={[MainStyles.navIcon, {tintColor: tintColor}]} />
+            <Text style={[MainStyles.iconFont, MainStyles.navIcon, {color: tintColor}]}>&#xe036;</Text>
         )
     }
 

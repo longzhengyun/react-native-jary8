@@ -5,10 +5,16 @@ import { MainStyles, HeaderStyles } from '../assets/styles/appStyles';
 import FormModel from '../components/formModel';
 
 class AboutScreen extends Component {
-    static navigationOptions = {
-        title: '关于佳瑞网',
-        headerStyle: HeaderStyles.headerModel,
-        headerTitleStyle: HeaderStyles.modelText
+    static navigationOptions = props => {
+        const { navigation } = props;
+        return {
+            title: '关于佳瑞网',
+            headerStyle: HeaderStyles.headerModel,
+            headerTitleStyle: HeaderStyles.modelText,
+            headerRight: (
+                <Text style={[MainStyles.iconFont, HeaderStyles.modelBtn]} onPress={() => navigation.navigate('Home')}>&#xe005;</Text>
+            )
+        }
     }
 
     constructor(props){
