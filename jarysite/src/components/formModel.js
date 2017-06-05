@@ -8,6 +8,7 @@ class FormModel extends Component {
         super(props);
 
         this.data = this.props.data;
+        this.formPer = this.props.formPer;
         this.navigation = this.props.navigation;
     }
 
@@ -15,19 +16,20 @@ class FormModel extends Component {
         return (
             <View style={FormStyles.formModel}>
                 {
-                    this.data.value.map((value, index) => (
-                            <View key={index} style={[FormStyles.modelItem, index === (this.data.value.length - 1) ? FormStyles.modelBorderBottomHide : '']}>
-                                <Text style={[FormStyles.modelName, { width: SreenWidth * this.data.per }]}>{value.name}</Text>
+                    this.data.map((value, index) => (
+                            <View key={index} style={[FormStyles.modelItem, index === (this.data.length - 1) ? FormStyles.modelBorderBottomHide : '']}>
+                                <Text style={[FormStyles.modelName, { width: SreenWidth * this.formPer }]}>{value.name}</Text>
                                 {
                                     value.link ?
                                     <TouchableOpacity activeOpacity={1} style={FormStyles.modelCont} onPress={() => this.navigation.navigate(value.link)}>
-                                        <Text style={FormStyles.modelCont}>{value.text}</Text>
+                                        <Text style={FormStyles.modelText}>{value.text}</Text>
                                         <Text style={[MainStyles.iconFont, FormStyles.modelBtn]}>&#xe003;</Text>
                                     </TouchableOpacity>
                                     :
-                                    <Text style={FormStyles.modelCont}>{value.text}</Text>
+                                    <View style={FormStyles.modelCont}>
+                                        <Text>{value.text}</Text>
+                                    </View>
                                 }
-                                
                             </View>
                         )
                     )

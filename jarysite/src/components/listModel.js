@@ -22,7 +22,7 @@ class ListModel extends Component {
                             <Text numberOfLines={1} style={ListStyles.modelTitle}>{rowData.title}</Text>
                             <Text style={[ListStyles.modelTag, { borderColor: rowData.color }, { color: rowData.color }]}>{rowData.category}</Text>
                         </View>
-                        <Text numberOfLines={3} style={ListStyles.modelInfo}>{rowData.info}</Text>
+                        <Text numberOfLines={3} style={ListStyles.modelInfo}>{rowData.description}</Text>
                     </View>
                 } 
             />

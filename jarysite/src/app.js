@@ -6,6 +6,7 @@ import WebsiteScreen from './views/websiteScreen';
 import MyScreen from './views/myScreen';
 
 import AboutScreen from './views/aboutScreen';
+import VersionScreen from './views/versionScreen';
 
 const TabRoutes = {
     Home: {
@@ -53,7 +54,8 @@ const MainTab = new TabNavigator(
 
 const StackRoutes = {
     Main: { screen: MainTab },
-    About: { screen: AboutScreen }
+    About: { screen: AboutScreen },
+    Version: { screen: VersionScreen }
 };
 
 const StackRoutesConfig = {

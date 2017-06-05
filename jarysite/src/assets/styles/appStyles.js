@@ -35,7 +35,8 @@ const HeaderStyles = StyleSheet.create({
     modelText: {
         fontSize: PR * 20,
         color: '#333',
-        fontWeight: 'normal'
+        fontWeight: 'normal',
+        alignSelf: 'center'
     },
     modelBtn: {
         fontSize: PR * 24,
@@ -103,7 +104,6 @@ const RecommendStyles = StyleSheet.create({
 
 const FormStyles = StyleSheet.create({
     formModel: {
-        borderTopWidth: PR * 1,
         borderBottomWidth: PR * 1,
         borderColor: '#ccc',
         backgroundColor: '#fff',
@@ -122,15 +122,17 @@ const FormStyles = StyleSheet.create({
         color: '#82898d'
     },
     modelCont: {
-        flex: 1,
+        flex: 1
+    },
+    modelText: {
         fontSize: PR * 15,
         color: '#333'
     },
     modelBtn: {
         position: 'absolute',
-        top: PR * 8,
+        top: PR * 2,
         right: 0,
-        fontSize: PR * 18
+        fontSize: PR * 15
     },
     modelBorderBottomHide: {
         borderBottomWidth: 0

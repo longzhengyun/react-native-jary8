@@ -20,7 +20,7 @@ class HomeScreen extends Component {
             data: false
         }
 
-        const articleData = require('../data/articleData.json');
+        const articleData = require('../data/articleData.json').sort(this.sortArray);
         const websiteData = require('../data/websiteData.json');
 
         this.articleModel = {
@@ -33,6 +33,10 @@ class HomeScreen extends Component {
             modelLink: 'Website',
             modelData: websiteData
         };
+    }
+
+    sortArray(a, b) {
+        return b.date - a.date;
     }
 
     render() {
@@ -48,8 +52,8 @@ class HomeScreen extends Component {
                     </View>
                 </View>
                 <ScrollView style={MainStyles.sectionWrap}>
-                    <RecommendModel data={this.articleModel} navigation={this.props.navigation} />
-                    <RecommendModel data={this.websiteModel} navigation={this.props.navigation} />
+                    <RecommendModel data={this.articleModel} maxLength={10} navigation={this.props.navigation} />
+                    <RecommendModel data={this.websiteModel} maxLength={6} navigation={this.props.navigation} />
                 </ScrollView>
             </View>
         )

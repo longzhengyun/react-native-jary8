@@ -8,10 +8,22 @@ class RecommendModel extends Component {
         super(props);
 
         this.data = this.props.data;
+        this.maxLength = this.props.maxLength;
         this.navigation = this.props.navigation;
 
+        this.listData = [];
+
+        let count = 0;
+        this.data.modelData.map((value) => {
+            if (value.hot === 'y' && count < this.maxLength) {
+                count++;
+                this.listData.push(value);
+            }
+            return this.listData;
+        });
+
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        this.dataSource = ds.cloneWithRows(this.data.modelData);
+        this.dataSource = ds.cloneWithRows(this.listData);
     }
 
     render() {
