@@ -15,7 +15,7 @@ class RecommendModel extends Component {
 
         let count = 0;
         this.data.modelData.map((value) => {
-            if (value.hot === 'y' && count < this.maxLength) {
+            if (count < this.maxLength) {
                 count++;
                 this.listData.push(value);
             }
@@ -31,10 +31,27 @@ class RecommendModel extends Component {
             <View style={RecommendStyles.recommendModel}>
                 <View style={RecommendStyles.modelTitle}>
                     <Text style={RecommendStyles.modelTitleText}>{this.data.modelTitle}</Text>
-                    <Text style={RecommendStyles.modelTitleMore} onPress={() => this.navigation.navigate(this.data.modelLink)}>MORE</Text>
+                    {
+                        this.data.modelLink ?
+                        <Text style={RecommendStyles.modelTitleMore} onPress={() => this.navigation.navigate(this.data.modelLink)}>MORE</Text>
+                        :
+                        null
+                    }
                 </View>
                 <View style={RecommendStyles.modelCont}>
-                    <ListView contentContainerStyle={RecommendStyles.modelContList} dataSource={this.dataSource} renderRow={(rowData) => <Text numberOfLines={1} style={RecommendStyles.modelContItem}>{rowData.title}</Text>} />
+                    <ListView 
+                        contentContainerStyle={RecommendStyles.modelContList} 
+                        dataSource={this.dataSource} 
+                        renderRow={(rowData) => 
+                            <Text 
+                                numberOfLines={1} 
+                                style={RecommendStyles.modelContItem} 
+                                onPress={() => this.navigation.navigate('Detail', { id: rowData.id })}
+                            >
+                                {rowData.title}
+                            </Text>
+                        } 
+                    />
                 </View>
             </View>
         );

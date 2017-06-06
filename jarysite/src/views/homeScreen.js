@@ -23,15 +23,31 @@ class HomeScreen extends Component {
         const articleData = require('../data/articleData.json').sort(this.sortArray);
         const websiteData = require('../data/websiteData.json');
 
+        this.recommendArticleData = [];
+        articleData.map((value) => {
+            if (value.hot === 'y') {
+                this.recommendArticleData.push(value);
+            }
+            return this.recommendArticleData;
+        });
+
+        this.recommendWebsiteData = [];
+        websiteData.map((value) => {
+            if (value.hot === 'y') {
+                this.recommendWebsiteData.push(value);
+            }
+            return this.recommendWebsiteData;
+        });
+
         this.articleModel = {
             modelTitle: '推荐文章',
             modelLink: 'Article',
-            modelData: articleData
+            modelData: this.recommendArticleData
         };
         this.websiteModel = {
             modelTitle: '推荐网站',
             modelLink: 'Website',
-            modelData: websiteData
+            modelData: this.recommendWebsiteData
         };
     }
 
