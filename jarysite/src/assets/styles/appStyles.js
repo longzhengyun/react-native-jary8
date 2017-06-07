@@ -218,4 +218,30 @@ const HomeStyles = StyleSheet.create({
     }
 });
 
-module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, ListStyles, HomeStyles };
+const DetailStyles = StyleSheet.create({
+    detailMode: {
+        backgroundColor: '#fff'
+    },
+    detailTitle: {
+        fontSize: PR * 20,
+        padding: PR * 10,
+        textAlign: 'center',
+        color: '#333'
+    },
+    detailData: {
+        textAlign: 'center'
+    },
+    detailDataItem: {
+        fontSize: PR * 12
+    },
+    detailCont: {
+        padding: PR * 10
+    },
+    detailContItem: {
+        marginBottom: PR * 5,
+        fontSize: PR * 14,
+        lineHeight: 24
+    }
+});
+
+module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, ListStyles, HomeStyles, DetailStyles };
