@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { ScrollView, View, Text, Image } from 'react-native';
 
+import { ArticleData } from '../config';
 import { MainStyles, HeaderStyles } from '../assets/styles/appStyles';
 import MenuModel from '../components/menuModel';
 import ListModel from '../components/listModel';
@@ -20,10 +21,9 @@ class ArticleScreen extends Component {
     constructor(props){
         super(props);
 
-        const articleData = require('../data/articleData.json').sort(this.sortArray);
-
         this.menuData = ['全部', 'HTML', 'CSS', 'JavaScript', '杂谈'];
-        this.listData = articleData;
+        this.listData = ArticleData.sort(this.sortArray);
+        this.listType = 'Detail';
     }
 
     sortArray(a, b) {
@@ -35,7 +35,7 @@ class ArticleScreen extends Component {
             <View style={MainStyles.sectionWrap}>
                 <MenuModel data={this.menuData} />
                 <ScrollView style={MainStyles.sectionWrap}>
-                    <ListModel data={this.listData} />
+                    <ListModel data={this.listData} listType={this.listType} navigation={this.props.navigation} />
                 </ScrollView>
             </View>
         )

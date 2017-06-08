@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
 
+import { ArticleData } from '../config';
 import { MainStyles, HeaderStyles, DetailStyles } from '../assets/styles/appStyles';
 import RecommendModel from '../components/recommendModel';
 
@@ -21,28 +22,16 @@ class DetailScreen extends Component {
         super(props);
 
         const id = this.props.navigation.state.params.id;
-        const articleData = require('../data/articleData.json')
 
         this.articleDetail = {};
-        articleData.map((value) => {
+        ArticleData.map((value) => {
             if (value.id === id) {
                 this.articleDetail = value;
-
-                let newDate = new Date();
-                newDate.setTime(this.articleDetail.date * 1000);
-                this.articleDetail.date = newDate.format('yyyy-MM-dd');
-
-                let regexp1 = /<[^>]*>/g;//正则表达式匹配各种HTML标签
-                let regexp2 = /\s\f\t\r+/g;//正则表达式匹配img标签
-                let regexp3 = /\n+/g;//正则表达式匹配img标签
-                this.articleDetail.content = this.articleDetail.content.replace(regexp1, '\n').replace(regexp2, '\n').replace(regexp3, '\n');//正则匹配替换文章图片路径
-                this.articleDetail.content = this.articleDetail.content.split('\n'); //按</p><p>转换字符串为数组
             }
-        });
+        });//格式化数据
 
         this.recommendData = [];
-
-        articleData.map((value) => {
+        ArticleData.map((value) => {
             if (value.category === this.articleDetail.category && value.id !== this.articleDetail.id) {
                 this.recommendData.push(value);
             }

@@ -167,12 +167,22 @@ const ListStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between'
     },
+    modelDate: {
+        fontSize: PR * 12
+    },
     modelTag: {
         fontSize: PR * 12,
         borderWidth: PR * 1,
         marginLeft: PR * 10,
         paddingHorizontal: PR * 5,
         borderRadius: PR * 2.5
+    },
+    modelLink: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
     }
 });
 

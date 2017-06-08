@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
 
+import { ArticleData, WebsiteData } from '../config';
 import { MainStyles, HomeStyles } from '../assets/styles/appStyles';
 import RecommendModel from '../components/recommendModel';
 
@@ -20,11 +21,8 @@ class HomeScreen extends Component {
             data: false
         }
 
-        const articleData = require('../data/articleData.json').sort(this.sortArray);
-        const websiteData = require('../data/websiteData.json');
-
         this.recommendArticleData = [];
-        articleData.map((value) => {
+        ArticleData.map((value) => {
             if (value.hot === 'y') {
                 this.recommendArticleData.push(value);
             }
@@ -32,7 +30,7 @@ class HomeScreen extends Component {
         });
 
         this.recommendWebsiteData = [];
-        websiteData.map((value) => {
+        WebsiteData.map((value) => {
             if (value.hot === 'y') {
                 this.recommendWebsiteData.push(value);
             }
