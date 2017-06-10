@@ -21,21 +21,42 @@ class ArticleScreen extends Component {
     constructor(props){
         super(props);
 
+        this.state = {
+            changeData: false
+        };
+
         this.menuData = ['全部', 'HTML', 'CSS', 'JavaScript', '杂谈'];
-        this.listData = ArticleData.sort(this.sortArray);
-        this.listType = 'Detail';
+        this.listData = ArticleData;
+        this.listType = 'Article';
+        this.listCategory = '全部'
     }
 
-    sortArray(a, b) {
-        return b.date - a.date;
+    getData(category) {
+        let newData = [];
+        if (category !== '全部') { //获取指定Category数据
+            ArticleData.map((value) => {
+                if (value.category === category) {
+                    newData.push(value);
+                }
+            });
+        } else {
+            newData = ArticleData;
+        }
+
+        this.listData = newData;
+        this.listCategory = category;
+
+        this.setState({
+            changeData: !this.state.changeData
+        });
     }
 
     render() {
         return (
             <View style={MainStyles.sectionWrap}>
-                <MenuModel data={this.menuData} />
+                <MenuModel data={this.menuData} changeData={(category) => this.getData(category)} />
                 <ScrollView style={MainStyles.sectionWrap}>
-                    <ListModel data={this.listData} listType={this.listType} navigation={this.props.navigation} />
+                    <ListModel data={this.listData} listType={this.listType} listCategory={this.listCategory} navigation={this.props.navigation} />
                 </ScrollView>
             </View>
         )

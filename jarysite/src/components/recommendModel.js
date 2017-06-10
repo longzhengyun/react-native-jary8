@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ListView, Text } from 'react-native';
+import { View, ListView, Text, Linking } from 'react-native';
 
 import { RecommendStyles } from '../assets/styles/appStyles';
 
@@ -26,6 +26,16 @@ class RecommendModel extends Component {
         this.dataSource = ds.cloneWithRows(this.listData);
     }
 
+    listPress(url = null, id = null) {
+        if (url) {
+            Linking.openURL(url).catch((err) => {
+                console.log('An error occurred', err);
+            });
+        } else {
+            this.navigation.navigate('Detail', { id });
+        }
+    }
+
     render() {
         return (
             <View style={RecommendStyles.recommendModel}>
@@ -46,7 +56,7 @@ class RecommendModel extends Component {
                             <Text 
                                 numberOfLines={1} 
                                 style={RecommendStyles.modelContItem} 
-                                onPress={() => this.navigation.navigate('Detail', { id: rowData.id })}
+                                onPress={() => this.listPress(rowData.url, rowData.id)}
                             >
                                 {rowData.title}
                             </Text>

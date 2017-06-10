@@ -5,7 +5,7 @@ import { ArticleData } from '../config';
 import { MainStyles, HeaderStyles, DetailStyles } from '../assets/styles/appStyles';
 import RecommendModel from '../components/recommendModel';
 
-class DetailScreen extends Component {
+class ArticleDetail extends Component {
     static navigationOptions = props => {
         const { navigation } = props;
         return {
@@ -28,7 +28,7 @@ class DetailScreen extends Component {
             if (value.id === id) {
                 this.articleDetail = value;
             }
-        });//格式化数据
+        });//获取指定ID数据
 
         this.recommendData = [];
         ArticleData.map((value) => {
@@ -73,4 +73,4 @@ class DetailScreen extends Component {
     }
 }
 
-module.exports = DetailScreen;
+module.exports = ArticleDetail;

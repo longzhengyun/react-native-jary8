@@ -8,6 +8,7 @@ class MenuModel extends Component {
         super(props);
 
         this.data = this.props.data;
+        this.changeData = this.props.changeData;
         this.current = 0;
         this.state = {
             current: false
@@ -16,6 +17,7 @@ class MenuModel extends Component {
 
     changeCurrent(index) {
         this.current = index;
+        this.changeData(this.data[index]);//更新数据
         this.setState({
             current: !this.state.current
         });
@@ -25,8 +27,8 @@ class MenuModel extends Component {
         return (
             <View style={MenuStyles.menuModel}>
                 {
-                    this.data.map((text, index) => (
-                            <Text key={index} numberOfLines={1} onPress={() => this.changeCurrent(index)} style={[MenuStyles.modelItem, this.current === index ? MenuStyles.modelItemCur : '', { width: SreenWidth / this.data.length }]}>{text}</Text>
+                    this.data.map((text, key) => (
+                            <Text key={key} numberOfLines={1} onPress={() => this.changeCurrent(key)} style={[MenuStyles.modelItem, this.current === key ? MenuStyles.modelItemCur : '', { width: SreenWidth / this.data.length }]}>{text}</Text>
                         )
                     )
                 }
