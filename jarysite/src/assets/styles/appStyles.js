@@ -36,11 +36,24 @@ const HeaderStyles = StyleSheet.create({
         fontSize: PR * 20,
         color: '#333',
         fontWeight: 'normal',
-        alignSelf: 'center'
+        textAlign: 'center'
     },
     modelBtn: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        zIndex: 5,
+        width: PR * 50,
         fontSize: PR * 24,
-        marginRight: PR * 10
+        includeFontPadding: false,
+        textAlign: 'center',
+        textAlignVertical: 'center'
+    },
+    modelLeftBtn: {
+        left: 0
+    },
+    modelRightBtn: {
+        right: 0
     }
 });
 
@@ -104,6 +117,7 @@ const RecommendStyles = StyleSheet.create({
 
 const FormStyles = StyleSheet.create({
     formModel: {
+        borderTopWidth: PR * 1,
         borderBottomWidth: PR * 1,
         borderColor: '#ccc',
         backgroundColor: '#fff',
@@ -111,7 +125,7 @@ const FormStyles = StyleSheet.create({
         marginBottom: PR * 5
     },
     modelItem: {
-        paddingVertical: PR * 10,
+        paddingVertical: PR * 12,
         borderBottomWidth: PR * 1,
         borderColor: '#ddd',
         flexDirection: 'row',
@@ -131,8 +145,11 @@ const FormStyles = StyleSheet.create({
     modelBtn: {
         position: 'absolute',
         top: PR * 2,
-        right: 0,
+        right: PR * 5,
         fontSize: PR * 15
+    },
+    modelBorderTopHide: {
+        borderTopWidth: 0
     },
     modelBorderBottomHide: {
         borderBottomWidth: 0
@@ -189,14 +206,14 @@ const ListStyles = StyleSheet.create({
 const HomeStyles = StyleSheet.create({
     homeBanner: {
         backgroundColor: '#fff',
-        paddingTop: PR * 40,
-        paddingBottom: PR * 20,
+        paddingTop: PR * 20,
+        paddingBottom: PR * 10,
         alignItems: 'center'
     },
     homeLogo: {
         width: PR * 172,
         height: PR * 54,
-        marginBottom: PR * 30
+        marginBottom: PR * 10
     },
     homeSearch: {
         width: SreenWidth - (PR * 38),
@@ -234,7 +251,9 @@ const DetailStyles = StyleSheet.create({
     },
     detailTitle: {
         fontSize: PR * 20,
-        padding: PR * 10,
+        paddingTop: PR * 20,
+        paddingBottom: PR * 10,
+        paddingHorizontal: PR * 20,
         textAlign: 'center',
         color: '#333'
     },

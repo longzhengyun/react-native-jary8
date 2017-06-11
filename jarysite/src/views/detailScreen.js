@@ -1,33 +1,30 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 
 import { ArticleData } from '../config';
-import { MainStyles, HeaderStyles, DetailStyles } from '../assets/styles/appStyles';
+import { MainStyles, DetailStyles } from '../assets/styles/appStyles';
+import HeaderModel from '../components/headerModel';
 import RecommendModel from '../components/recommendModel';
 
 class ArticleDetail extends Component {
-    static navigationOptions = props => {
-        const { navigation } = props;
-        return {
-            title: '文章详情',
-            headerStyle: HeaderStyles.headerModel,
-            headerTitleStyle: HeaderStyles.modelText,
-            headerRight: (
-                <Text style={[MainStyles.iconFont, HeaderStyles.modelBtn]} onPress={() => navigation.navigate('Home')}>&#xe005;</Text>
-            )
-        }
-    }
-
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.navigation = this.props.navigation;
 
-        const id = this.props.navigation.state.params.id;
+        const id = this.navigation.state.params.id;
 
+        this.headerData = {
+            title: '文章详情',
+            backBtn: true,
+            homeBtn: true,
+            searchBtn: false
+        };
         this.articleDetail = {};
         ArticleData.map((value) => {
             if (value.id === id) {
                 this.articleDetail = value;
             }
+            return this.articleDetail;
         });//获取指定ID数据
 
         this.recommendData = [];
@@ -35,6 +32,7 @@ class ArticleDetail extends Component {
             if (value.category === this.articleDetail.category && value.id !== this.articleDetail.id) {
                 this.recommendData.push(value);
             }
+            return this.recommendData;
         });
 
         this.articleModel = {
@@ -47,6 +45,7 @@ class ArticleDetail extends Component {
     render() {
         return (
             <View style={MainStyles.sectionWrap}>
+                <HeaderModel data={this.headerData} navigation={this.navigation} />
                 <ScrollView style={MainStyles.sectionWrap}>
                     <View style={DetailStyles.detailMode}>
                         <Text style={DetailStyles.detailTitle}>{this.articleDetail.title}</Text>
@@ -63,13 +62,13 @@ class ArticleDetail extends Component {
                     </View>
                     {
                         this.recommendData.length ?
-                        <RecommendModel data={this.articleModel} maxLength={4} navigation={this.props.navigation} />
+                        <RecommendModel data={this.articleModel} maxLength={4} navigation={this.navigation} />
                         :
                         null
                     }
                 </ScrollView>
             </View>
-        )
+        );
     }
 }
 

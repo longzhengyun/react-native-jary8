@@ -6,15 +6,15 @@ import { MainStyles, SreenWidth, FormStyles } from '../assets/styles/appStyles';
 class FormModel extends Component {
     constructor(props) {
         super(props);
-
         this.data = this.props.data;
         this.formPer = this.props.formPer;
         this.navigation = this.props.navigation;
+        this.modelBorderTopHide = this.props.modelBorderTopHide || false;
     }
 
     render() {
         return (
-            <View style={FormStyles.formModel}>
+            <View style={[FormStyles.formModel, this.modelBorderTopHide ? FormStyles.modelBorderTopHide : '']}>
                 {
                     this.data.map((value, index) => (
                             <View key={index} style={[FormStyles.modelItem, index === (this.data.length - 1) ? FormStyles.modelBorderBottomHide : '']}>

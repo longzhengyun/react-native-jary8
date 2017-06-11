@@ -10,16 +10,18 @@ Date.prototype.format = function (format) {
         'S+': this.getMilliseconds()
     };
     if (/(y+)/i.test(format)) {
-        format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+        format = format.replace(RegExp.$1, this.getFullYear().toString().substr(4 - RegExp.$1.length));
     }
-    for (let k in date) {
-        if (new RegExp('(' + k + ')').test(format)) {
+    for (const k in date) {
+        if (new RegExp(`(${k})`).test(format)) {
             format = format.replace(RegExp.$1, RegExp.$1.length === 1
-                ? date[k] : ('00' + date[k]).substr(('' + date[k]).length));
+                ? date[k] : (`00${date[k]}`).substr(date[k].toString().length));
         }
     }
     return format;
 };
+
+const LogoImg = require('./assets/images/logo.png');
 
 const ArticleData = require('./data/articleData.json').sort(this.sortArray);
 
@@ -42,4 +44,4 @@ ArticleData.map((value) => {
 
 const WebsiteData = require('./data/websiteData.json');
 
-module.exports = { ArticleData, WebsiteData };
+module.exports = { LogoImg, ArticleData, WebsiteData };

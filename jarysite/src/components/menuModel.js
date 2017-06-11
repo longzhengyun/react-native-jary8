@@ -6,9 +6,9 @@ import { SreenWidth, MenuStyles } from '../assets/styles/appStyles';
 class MenuModel extends Component {
     constructor(props) {
         super(props);
-
         this.data = this.props.data;
         this.changeData = this.props.changeData;
+
         this.current = 0;
         this.state = {
             current: false
@@ -17,7 +17,7 @@ class MenuModel extends Component {
 
     changeCurrent(index) {
         this.current = index;
-        this.changeData(this.data[index]);//更新数据
+        this.changeData(this.data[index]); //更新数据
         this.setState({
             current: !this.state.current
         });

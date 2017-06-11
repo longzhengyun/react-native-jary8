@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 import { WebsiteData } from '../config';
-import { MainStyles, HeaderStyles } from '../assets/styles/appStyles';
+import { MainStyles } from '../assets/styles/appStyles';
+import HeaderModel from '../components/headerModel';
 import MenuModel from '../components/menuModel';
 import ListModel from '../components/listModel';
 
 class WebsiteScreen extends Component {
-    static navigationOptions = {
-        title: '网站推荐',
-        headerStyle: HeaderStyles.headerModel,
-        headerTitleStyle: HeaderStyles.modelText,
-        tabBarLabel: '网站',
-        tabBarIcon: ({ tintColor }) => (
-            <Text style={[MainStyles.iconFont, MainStyles.navIcon, {color: tintColor}]}>&#xe030;</Text>
-        )
-    }
-
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
             changeData: false
         };
 
+        this.headerData = {
+            title: '网站推荐',
+            backBtn: false,
+            homeBtn: false,
+            searchBtn: false
+        };
         this.menuData = ['全部', '技术', '工具', '其他'];
         this.listData = WebsiteData;
         this.listType = 'Website';
@@ -38,6 +34,7 @@ class WebsiteScreen extends Component {
                 if (value.category === category) {
                     newData.push(value);
                 }
+                return newData;
             });
         } else {
             newData = WebsiteData;
@@ -54,12 +51,13 @@ class WebsiteScreen extends Component {
     render() {
         return (
             <View style={MainStyles.sectionWrap}>
+                <HeaderModel data={this.headerData} />
                 <MenuModel data={this.menuData} changeData={(category) => this.getData(category)} />
                 <ScrollView style={MainStyles.sectionWrap}>
                     <ListModel data={this.listData} listType={this.listType} listCategory={this.listCategory} />
                 </ScrollView>
             </View>
-        )
+        );
     }
 }
 

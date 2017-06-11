@@ -6,7 +6,6 @@ import { RecommendStyles } from '../assets/styles/appStyles';
 class RecommendModel extends Component {
     constructor(props) {
         super(props);
-
         this.data = this.props.data;
         this.maxLength = this.props.maxLength;
         this.navigation = this.props.navigation;

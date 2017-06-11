@@ -1,4 +1,8 @@
+import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Text } from 'react-native';
+
+import { MainStyles } from './assets/styles/appStyles';
 
 import HomeScreen from './views/homeScreen';
 import ArticleScreen from './views/articleScreen';
@@ -11,16 +15,40 @@ import DetailScreen from './views/detailScreen';
 
 const TabRoutes = {
     Home: {
-        screen: HomeScreen
+        screen: HomeScreen,
+        navigationOptions: {
+            tabBarLabel: '首页',
+            tabBarIcon: ({ tintColor }) => (
+                <Text style={[MainStyles.iconFont, MainStyles.navIcon, { color: tintColor }]}>&#xe02e;</Text>
+            )
+        }
     },
     Article: {
-        screen: ArticleScreen
+        screen: ArticleScreen,
+        navigationOptions: {
+            tabBarLabel: '文章',
+            tabBarIcon: ({ tintColor }) => (
+                <Text style={[MainStyles.iconFont, MainStyles.navIcon, { color: tintColor }]}>&#xe031;</Text>
+            )
+        }
     },
     Website: {
-        screen: WebsiteScreen
+        screen: WebsiteScreen,
+        navigationOptions: {
+            tabBarLabel: '网站',
+            tabBarIcon: ({ tintColor }) => (
+                <Text style={[MainStyles.iconFont, MainStyles.navIcon, { color: tintColor }]}>&#xe030;</Text>
+            )
+        }
     },
     My: {
-        screen: MyScreen
+        screen: MyScreen,
+        navigationOptions: {
+            tabBarLabel: '我的',
+            tabBarIcon: ({ tintColor }) => (
+                <Text style={[MainStyles.iconFont, MainStyles.navIcon, { color: tintColor }]}>&#xe036;</Text>
+            )
+        }
     }
 };
 
@@ -44,7 +72,7 @@ const TabRoutesConfig = {
     },
     tabBarPosition: 'bottom',
     initialRouteName: 'Home',
-    swipeEnabled: false,
+    swipeEnabled: true,
     animationEnabled: false
 };
 
@@ -61,7 +89,7 @@ const StackRoutes = {
 };
 
 const StackRoutesConfig = {
-    headerMode: 'float'
+    headerMode: 'none'
 };
 
 const MainStack = new StackNavigator(

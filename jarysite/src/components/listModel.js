@@ -6,15 +6,14 @@ import { ListStyles } from '../assets/styles/appStyles';
 class ListModel extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            changeData: false
-        };
-
         this.navigation = this.props.navigation;
         this.listType = this.props.listType;
         this.listCategory = this.props.listCategory;
         this.data = this.props.data;
+
+        this.state = {
+            changeData: false
+        };
 
         this.defaultCategory = [
             { category: 'HTML', color: '#f7615d', borderColor: '#f8acaa' },
