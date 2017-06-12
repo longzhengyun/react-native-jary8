@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 
 import { LogoImg, ArticleData, WebsiteData } from '../config';
 import { MainStyles, HomeStyles } from '../assets/styles/appStyles';
@@ -47,12 +47,12 @@ class HomeScreen extends Component {
             <View style={MainStyles.sectionWrap}>
                 <View style={HomeStyles.homeBanner}>
                     <Image source={LogoImg} style={HomeStyles.homeLogo} />
-                    <View style={HomeStyles.homeSearch}>
+                    <TouchableOpacity activeOpacity={1} style={HomeStyles.homeSearch} onPress={() => this.navigation.navigate('Search')}>
                         <Text style={HomeStyles.searchText}>搜索感兴趣的前端文章</Text>
                         <View style={HomeStyles.searchBtn}>
                             <Text style={[MainStyles.iconFont, HomeStyles.searchIcon]}>&#xe03b;</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <ScrollView style={MainStyles.sectionWrap}>
                     <RecommendModel data={this.articleModel} maxLength={10} navigation={this.navigation} />

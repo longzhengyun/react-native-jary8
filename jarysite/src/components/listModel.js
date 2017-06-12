@@ -55,8 +55,7 @@ class ListModel extends Component {
 
     render() {
         return (
-            <ListView 
-                contentContainerStyle={ListStyles.listModel} 
+            <ListView
                 dataSource={this.dataSource} 
                 renderRow={(rowData) => 
                     <View style={ListStyles.modelItem}>

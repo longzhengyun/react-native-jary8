@@ -27,7 +27,6 @@ const MainStyles = StyleSheet.create({
 const HeaderStyles = StyleSheet.create({
     headerModel: {
         height: PR * 50,
-        backgroundColor: '#eee',
         borderBottomWidth: PR * 1,
         borderBottomColor: '#d4d4d4',
         justifyContent: 'center'
@@ -157,8 +156,6 @@ const FormStyles = StyleSheet.create({
 });
 
 const ListStyles = StyleSheet.create({
-    listModel: {
-    },
     modelItem: {
         marginTop: PR * 5,
         paddingVertical: PR * 5,
@@ -245,6 +242,38 @@ const HomeStyles = StyleSheet.create({
     }
 });
 
+const SearchStyles = StyleSheet.create({
+    searchWrap: {
+        height: PR * 50,
+        paddingHorizontal: PR * 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#d4d4d4'
+    },
+    searchText: {
+        flex: 1,
+        paddingLeft: PR * 40,
+        paddingRight: PR * 10,
+        paddingVertical: PR * 5,
+        backgroundColor: '#fff',
+        fontSize: PR * 15,
+        borderRadius: PR * 15
+    },
+    searchBtn: {
+        marginLeft: PR * 10,
+        fontSize: PR * 18
+    },
+    searchIcon: {
+        position: 'absolute',
+        top: PR * 10,
+        left: PR * 20,
+        lineHeight: 28,
+        fontSize: PR * 20
+    }
+});
+
 const DetailStyles = StyleSheet.create({
     detailMode: {
         backgroundColor: '#fff'
@@ -273,4 +302,4 @@ const DetailStyles = StyleSheet.create({
     }
 });
 
-module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, ListStyles, HomeStyles, DetailStyles };
+module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, ListStyles, HomeStyles, SearchStyles, DetailStyles };

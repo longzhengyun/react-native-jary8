@@ -9,6 +9,7 @@ import ArticleScreen from './views/articleScreen';
 import WebsiteScreen from './views/websiteScreen';
 import MyScreen from './views/myScreen';
 
+import SearchScreen from './views/searchScreen';
 import AboutScreen from './views/aboutScreen';
 import VersionScreen from './views/versionScreen';
 import DetailScreen from './views/detailScreen';
@@ -67,7 +68,8 @@ const TabRoutesConfig = {
         style: {
             borderTopWidth: 1,
             borderTopColor: '#d4d4d4',
-            backgroundColor: '#fff'
+            backgroundColor: '#fff',
+            elevation: 0
         }
     },
     tabBarPosition: 'bottom',
@@ -83,6 +85,7 @@ const MainTab = new TabNavigator(
 
 const StackRoutes = {
     Main: { screen: MainTab },
+    Search: { screen: SearchScreen },
     About: { screen: AboutScreen },
     Version: { screen: VersionScreen },
     Detail: { screen: DetailScreen, path: 'detail/:id' }
