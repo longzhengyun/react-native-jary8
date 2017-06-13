@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TextInput } from 'react-native';
+import { ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { ArticleData } from '../config';
 import { MainStyles, SearchStyles } from '../assets/styles/appStyles';
@@ -45,7 +45,9 @@ class SearchScreen extends Component {
                         placeholder={'搜索感兴趣的前端文章'}
                         autoFocus
                     />
-                    <Text style={SearchStyles.searchBtn} onPress={() => this.navigation.goBack()}>取消</Text>
+                    <TouchableOpacity onPress={() => this.navigation.goBack()}>
+                        <Text style={SearchStyles.searchBtn}>取消</Text>
+                    </TouchableOpacity>
                     <Text style={[MainStyles.iconFont, SearchStyles.searchIcon]}>&#xe03b;</Text>
                 </View>
                 {

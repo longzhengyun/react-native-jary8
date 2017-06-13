@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import { SreenWidth, MenuStyles } from '../assets/styles/appStyles';
 
@@ -28,7 +28,9 @@ class MenuModel extends Component {
             <View style={MenuStyles.menuModel}>
                 {
                     this.data.map((text, key) => (
-                            <Text key={key} numberOfLines={1} onPress={() => this.changeCurrent(key)} style={[MenuStyles.modelItem, this.current === key ? MenuStyles.modelItemCur : '', { width: SreenWidth / this.data.length }]}>{text}</Text>
+                            <TouchableOpacity key={key} onPress={() => this.changeCurrent(key)} >
+                                <Text numberOfLines={1} style={[MenuStyles.modelItem, this.current === key ? MenuStyles.modelItemCur : '', { width: SreenWidth / this.data.length }]}>{text}</Text>
+                            </TouchableOpacity>
                         )
                     )
                 }

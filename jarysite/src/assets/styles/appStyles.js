@@ -40,9 +40,12 @@ const HeaderStyles = StyleSheet.create({
     modelBtn: {
         position: 'absolute',
         top: 0,
-        bottom: 0,
         zIndex: 5,
         width: PR * 50,
+        height: PR * 50
+    },
+    modelBtnText: {
+        height: PR * 50,
         fontSize: PR * 24,
         includeFontPadding: false,
         textAlign: 'center',

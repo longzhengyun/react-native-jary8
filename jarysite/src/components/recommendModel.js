@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ListView, Text, Linking } from 'react-native';
+import { View, ListView, Text, Linking, TouchableOpacity } from 'react-native';
 
 import { RecommendStyles } from '../assets/styles/appStyles';
 
@@ -42,7 +42,9 @@ class RecommendModel extends Component {
                     <Text style={RecommendStyles.modelTitleText}>{this.data.modelTitle}</Text>
                     {
                         this.data.modelLink ?
-                        <Text style={RecommendStyles.modelTitleMore} onPress={() => this.navigation.navigate(this.data.modelLink)}>MORE</Text>
+                        <TouchableOpacity onPress={() => this.navigation.navigate(this.data.modelLink)}>
+                            <Text style={RecommendStyles.modelTitleMore}>MORE</Text>
+                        </TouchableOpacity>
                         :
                         null
                     }
@@ -52,13 +54,9 @@ class RecommendModel extends Component {
                         contentContainerStyle={RecommendStyles.modelContList} 
                         dataSource={this.dataSource} 
                         renderRow={(rowData) => 
-                            <Text 
-                                numberOfLines={1} 
-                                style={RecommendStyles.modelContItem} 
-                                onPress={() => this.listPress(rowData.url, rowData.id)}
-                            >
-                                {rowData.title}
-                            </Text>
+                            <TouchableOpacity onPress={() => this.listPress(rowData.url, rowData.id)}>
+                                <Text style={RecommendStyles.modelContItem} numberOfLines={1}>{rowData.title}</Text>
+                            </TouchableOpacity>
                         } 
                     />
                 </View>
