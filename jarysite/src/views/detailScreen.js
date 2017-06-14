@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ScrollView, View, Text } from 'react-native';
 
 import { ArticleData } from '../config';
 import { MainStyles, DetailStyles } from '../assets/styles/appStyles';
 import HeaderModel from '../components/headerModel';
 import RecommendModel from '../components/recommendModel';
+
+const propTypes = {
+    navigation: PropTypes.object
+};
 
 class ArticleDetail extends Component {
     constructor(props) {
@@ -71,5 +75,7 @@ class ArticleDetail extends Component {
         );
     }
 }
+
+ArticleDetail.propTypes = propTypes;
 
 module.exports = ArticleDetail;

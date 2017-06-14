@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import { SreenWidth, MenuStyles } from '../assets/styles/appStyles';
+
+const propTypes = {
+    data: PropTypes.array,
+    changeData: PropTypes.any
+};
 
 class MenuModel extends Component {
     constructor(props) {
@@ -38,5 +43,7 @@ class MenuModel extends Component {
         );
     }
 }
+
+MenuModel.propTypes = propTypes;
 
 module.exports = MenuModel;

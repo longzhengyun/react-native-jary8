@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, ListView, Text, TouchableOpacity, Linking } from 'react-native';
 
 import { ListStyles } from '../assets/styles/appStyles';
 
+const propTypes = {
+    data: PropTypes.array,
+    listType: PropTypes.string,
+    listCategory: PropTypes.string,
+    navigation: PropTypes.object,
+};
+
 class ListModel extends Component {
     constructor(props) {
         super(props);
-        this.navigation = this.props.navigation;
+        this.data = this.props.data;
         this.listType = this.props.listType;
         this.listCategory = this.props.listCategory;
-        this.data = this.props.data;
+        this.navigation = this.props.navigation;
 
         this.state = {
             changeData: false
@@ -100,5 +107,7 @@ class ListModel extends Component {
         );
     }
 }
+
+ListModel.propTypes = propTypes;
 
 module.exports = ListModel;

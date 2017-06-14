@@ -32,12 +32,12 @@ ArticleData.map((value) => {
     newDate.setTime(value.date * 1000);
     value.date = newDate.format('yyyy-MM-dd');
 
-    const regexp1 = /<[^>]*>/g;//正则表达式匹配各种HTML标签
-    const regexp2 = /[\s\f\t\r]+/g;//正则表达式匹配连续空格，制表符，回车符标签
-    const regexp3 = /\n+/g;//正则表达式匹配连续换行符标签
+    // const regexp1 = /<[^>]*>/g;//正则表达式匹配各种HTML标签
+    const regexp1 = /[\s\f\t\r]+/g;//正则表达式匹配连续空格，制表符，回车符标签
+    const regexp2 = /\n+/g;//正则表达式匹配连续换行符标签
 
-    value.content = value.content.replace(regexp1, '\n').replace(regexp2, '\n').replace(regexp3, '\n');
-    value.content = value.content.split('\n\n'); //按\n\n转换字符串为数组
+    value.content = value.content.replace(regexp1, ' ').replace(regexp2, '\n');
+    value.content = value.content.split('<p>'); //按\n\n转换字符串为数组
 
     return value;
 });//格式化日期

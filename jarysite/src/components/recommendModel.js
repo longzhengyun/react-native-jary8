@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, ListView, Text, Linking, TouchableOpacity } from 'react-native';
 
 import { RecommendStyles } from '../assets/styles/appStyles';
+
+const propTypes = {
+    data: PropTypes.object,
+    maxLength: PropTypes.number,
+    navigation: PropTypes.object
+};
 
 class RecommendModel extends Component {
     constructor(props) {
@@ -64,5 +70,7 @@ class RecommendModel extends Component {
         );
     }
 }
+
+RecommendModel.propTypes = propTypes;
 
 module.exports = RecommendModel;

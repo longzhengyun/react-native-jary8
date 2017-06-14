@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 
 import { LogoImg, ArticleData, WebsiteData } from '../config';
 import { MainStyles, HomeStyles } from '../assets/styles/appStyles';
 import RecommendModel from '../components/recommendModel';
+
+const propTypes = {
+    navigation: PropTypes.object
+};
 
 class HomeScreen extends Component {
     constructor(props) {
@@ -62,5 +66,7 @@ class HomeScreen extends Component {
         );
     }
 }
+
+HomeScreen.propTypes = propTypes;
 
 module.exports = HomeScreen;

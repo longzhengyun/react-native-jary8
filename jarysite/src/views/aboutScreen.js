@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ScrollView, View } from 'react-native';
 
 import { MainStyles } from '../assets/styles/appStyles';
 import HeaderModel from '../components/headerModel';
 import FormModel from '../components/formModel';
+
+const propTypes = {
+    navigation: PropTypes.object
+};
 
 class AboutScreen extends Component {
     constructor(props) {
@@ -39,5 +43,7 @@ class AboutScreen extends Component {
         );
     }
 }
+
+AboutScreen.propTypes = propTypes;
 
 module.exports = AboutScreen;

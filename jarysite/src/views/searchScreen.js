@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { ArticleData } from '../config';
 import { MainStyles, SearchStyles } from '../assets/styles/appStyles';
 import ListModel from '../components/listModel';
+
+const propTypes = {
+    navigation: PropTypes.object
+};
 
 class SearchScreen extends Component {
     constructor(props) {
@@ -62,5 +66,7 @@ class SearchScreen extends Component {
         );
     }
 }
+
+SearchScreen.propTypes = propTypes;
 
 module.exports = SearchScreen;

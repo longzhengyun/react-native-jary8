@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import { MainStyles, HeaderStyles } from '../assets/styles/appStyles';
+
+const propTypes = {
+    data: PropTypes.object,
+    navigation: PropTypes.object
+};
 
 class HeaderModel extends Component {
     constructor(props) {
@@ -43,5 +48,7 @@ class HeaderModel extends Component {
         );
     }
 }
+
+HeaderModel.propTypes = propTypes;
 
 module.exports = HeaderModel;

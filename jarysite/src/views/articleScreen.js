@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ScrollView, View } from 'react-native';
 
 import { ArticleData } from '../config';
@@ -6,6 +6,10 @@ import { MainStyles } from '../assets/styles/appStyles';
 import HeaderModel from '../components/headerModel';
 import MenuModel from '../components/menuModel';
 import ListModel from '../components/listModel';
+
+const propTypes = {
+    navigation: PropTypes.object
+};
 
 class ArticleScreen extends Component {
     constructor(props) {
@@ -61,5 +65,7 @@ class ArticleScreen extends Component {
         );
     }
 }
+
+ArticleScreen.propTypes = propTypes;
 
 module.exports = ArticleScreen;

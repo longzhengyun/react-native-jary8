@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import { MainStyles, SreenWidth, FormStyles } from '../assets/styles/appStyles';
+
+const propTypes = {
+    data: PropTypes.array,
+    formPer: PropTypes.number,
+    modelBorderTopHide: PropTypes.any,
+    navigation: PropTypes.object
+};
 
 class FormModel extends Component {
     constructor(props) {
         super(props);
         this.data = this.props.data;
         this.formPer = this.props.formPer;
+        this.modelBorderTopHide = this.props.modelBorderTopHide;
         this.navigation = this.props.navigation;
-        this.modelBorderTopHide = this.props.modelBorderTopHide || false;
     }
 
     render() {
@@ -38,5 +45,7 @@ class FormModel extends Component {
         );
     }
 }
+
+FormModel.propTypes = propTypes;
 
 module.exports = FormModel;
