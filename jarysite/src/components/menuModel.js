@@ -46,4 +46,4 @@ class MenuModel extends Component {
 
 MenuModel.propTypes = propTypes;
 
-module.exports = MenuModel;
+export default MenuModel;

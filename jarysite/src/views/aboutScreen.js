@@ -46,4 +46,4 @@ class AboutScreen extends Component {
 
 AboutScreen.propTypes = propTypes;
 
-module.exports = AboutScreen;
+export default AboutScreen;

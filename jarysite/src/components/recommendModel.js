@@ -73,4 +73,4 @@ class RecommendModel extends Component {
 
 RecommendModel.propTypes = propTypes;
 
-module.exports = RecommendModel;
+export default RecommendModel;

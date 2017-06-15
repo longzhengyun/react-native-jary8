@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, Image } from 'react-native';
 
 import { ArticleData } from '../config';
 import { MainStyles, DetailStyles } from '../assets/styles/appStyles';
@@ -7,8 +7,42 @@ import HeaderModel from '../components/headerModel';
 import RecommendModel from '../components/recommendModel';
 
 const propTypes = {
+    source: PropTypes.any,
     navigation: PropTypes.object
 };
+
+class ImageModel extends Component {
+    constructor(props) {
+        super(props);
+        this.source = this.props.source;
+
+        this.imgSize = {
+            width: 0,
+            height: 0
+        };
+
+        this.state = {
+            imgLoad: false
+        };
+    }
+
+    componentDidMount() {
+        Image.getSize(this.source, (width, height) => {
+            this.imgSize.height = height;
+            this.setState({
+                imgLoad: !this.state.imgLoad
+            });
+        });
+    }
+
+    render() {
+        return (
+            <Image style={[DetailStyles.detailContImg, { height: this.imgSize.height }]} source={{ uri: this.source }} />
+        );
+    }
+}
+
+ImageModel.propTypes = propTypes;
 
 class ArticleDetail extends Component {
     constructor(props) {
@@ -23,6 +57,7 @@ class ArticleDetail extends Component {
             homeBtn: true,
             searchBtn: false
         };
+
         this.articleDetail = {};
         ArticleData.map((value) => {
             if (value.id === id) {
@@ -46,6 +81,17 @@ class ArticleDetail extends Component {
         };
     }
 
+    outputContent(value, key) {
+        let outputTarget;
+        if (value.indexOf('http://www.jary8.com/static') >= 0) {
+            outputTarget = <ImageModel key={key} source={value} />;
+        } else if (value) {
+            outputTarget = <Text key={key} style={DetailStyles.detailContItem}>{value}</Text>;
+        }
+
+        return outputTarget;
+    }
+
     render() {
         return (
             <View style={MainStyles.sectionWrap}>
@@ -60,7 +106,7 @@ class ArticleDetail extends Component {
                         </Text>
                         <View style={DetailStyles.detailCont}>
                         {
-                            this.articleDetail.content.map((value, key) => <Text key={key} style={DetailStyles.detailContItem}>{value}</Text>)
+                            this.articleDetail.content.map((value, key) => this.outputContent(value, key))
                         }
                         </View>
                     </View>
@@ -78,4 +124,4 @@ class ArticleDetail extends Component {
 
 ArticleDetail.propTypes = propTypes;
 
-module.exports = ArticleDetail;
+export default ArticleDetail;

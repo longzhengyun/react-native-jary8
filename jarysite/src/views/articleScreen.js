@@ -68,4 +68,4 @@ class ArticleScreen extends Component {
 
 ArticleScreen.propTypes = propTypes;
 
-module.exports = ArticleScreen;
+export default ArticleScreen;

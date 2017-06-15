@@ -61,4 +61,4 @@ class WebsiteScreen extends Component {
     }
 }
 
-module.exports = WebsiteScreen;
+export default WebsiteScreen;

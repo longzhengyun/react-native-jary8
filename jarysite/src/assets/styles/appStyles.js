@@ -3,13 +3,7 @@ import { Platform, Dimensions, StyleSheet } from 'react-native';
 const SreenWidth = Dimensions.get('window').width;
 const SreenHeight = Dimensions.get('window').height;
 
-let PR;
-
-if (Platform.OS === 'ios') {
-    PR = SreenWidth / 375;
-} else {
-    PR = SreenWidth / 360;
-}
+const PR = (Platform.OS === 'ios') ? SreenWidth / 375 : SreenWidth / 360;
 
 const MainStyles = StyleSheet.create({
     sectionWrap: {
@@ -175,7 +169,7 @@ const ListStyles = StyleSheet.create({
     },
     modelInfo: {
         marginBottom: PR * 5,
-        lineHeight: 20,
+        lineHeight: PR * 20,
         fontSize: PR * 12,
         color: '#666'
     },
@@ -193,6 +187,10 @@ const ListStyles = StyleSheet.create({
         marginLeft: PR * 10,
         paddingHorizontal: PR * 5,
         borderRadius: PR * 2.5
+    },
+    modelImg: {
+        width: SreenWidth - (PR * 22),
+        marginVertical: PR * 5,
     },
     modelLink: {
         position: 'absolute',
@@ -240,8 +238,9 @@ const HomeStyles = StyleSheet.create({
         alignItems: 'center'
     },
     searchIcon: {
-        lineHeight: 28,
-        fontSize: PR * 20
+        lineHeight: PR * 32,
+        fontSize: PR * 20,
+        includeFontPadding: false
     }
 });
 
@@ -272,8 +271,9 @@ const SearchStyles = StyleSheet.create({
         position: 'absolute',
         top: PR * 10,
         left: PR * 20,
-        lineHeight: 28,
-        fontSize: PR * 20
+        lineHeight: PR * 30,
+        fontSize: PR * 20,
+        includeFontPadding: false
     }
 });
 
@@ -301,8 +301,12 @@ const DetailStyles = StyleSheet.create({
     detailContItem: {
         marginBottom: PR * 5,
         fontSize: PR * 14,
-        lineHeight: 24
+        lineHeight: PR * 24
+    },
+    detailContImg: {
+        marginBottom: PR * 5,
+        width: SreenWidth - (PR * 20)
     }
 });
 
-module.exports = { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, ListStyles, HomeStyles, SearchStyles, DetailStyles };
+export { SreenWidth, SreenHeight, PR, MainStyles, HeaderStyles, MenuStyles, RecommendStyles, FormStyles, ListStyles, HomeStyles, SearchStyles, DetailStyles };

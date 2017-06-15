@@ -50,7 +50,7 @@ class HomeScreen extends Component {
         return (
             <View style={MainStyles.sectionWrap}>
                 <View style={HomeStyles.homeBanner}>
-                    <Image source={LogoImg} style={HomeStyles.homeLogo} />
+                    <Image source={{ uri: LogoImg }} style={HomeStyles.homeLogo} />
                     <TouchableOpacity activeOpacity={1} style={HomeStyles.homeSearch} onPress={() => this.navigation.navigate('Search')}>
                         <Text style={HomeStyles.searchText}>搜索感兴趣的前端文章</Text>
                         <View style={HomeStyles.searchBtn}>
@@ -69,4 +69,4 @@ class HomeScreen extends Component {
 
 HomeScreen.propTypes = propTypes;
 
-module.exports = HomeScreen;
+export default HomeScreen;

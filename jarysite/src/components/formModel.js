@@ -48,4 +48,4 @@ class FormModel extends Component {
 
 FormModel.propTypes = propTypes;
 
-module.exports = FormModel;
+export default FormModel;

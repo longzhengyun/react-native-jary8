@@ -69,4 +69,4 @@ class SearchScreen extends Component {
 
 SearchScreen.propTypes = propTypes;
 
-module.exports = SearchScreen;
+export default SearchScreen;

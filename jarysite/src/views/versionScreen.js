@@ -80,4 +80,4 @@ class VersionScreen extends Component {
 
 VersionScreen.propTypes = propTypes;
 
-module.exports = VersionScreen;
+export default VersionScreen;

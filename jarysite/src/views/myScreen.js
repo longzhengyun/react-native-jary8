@@ -48,4 +48,4 @@ class MyScreen extends Component {
 
 MyScreen.propTypes = propTypes;
 
-module.exports = MyScreen;
+export default MyScreen;

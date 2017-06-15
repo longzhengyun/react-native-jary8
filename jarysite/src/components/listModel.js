@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, ListView, Text, TouchableOpacity, Linking } from 'react-native';
+import { View, ListView, Text, TouchableOpacity, Linking, Image } from 'react-native';
 
 import { ListStyles } from '../assets/styles/appStyles';
 
@@ -7,8 +7,42 @@ const propTypes = {
     data: PropTypes.array,
     listType: PropTypes.string,
     listCategory: PropTypes.string,
+    source: PropTypes.any,
     navigation: PropTypes.object,
 };
+
+class ImageModel extends Component {
+    constructor(props) {
+        super(props);
+        this.source = this.props.source;
+
+        this.imgSize = {
+            width: 0,
+            height: 0
+        };
+
+        this.state = {
+            imgLoad: false
+        };
+    }
+
+    componentDidMount() {
+        Image.getSize(this.source, (width, height) => {
+            this.imgSize.height = height;
+            this.setState({
+                imgLoad: !this.state.imgLoad
+            });
+        });
+    }
+
+    render() {
+        return (
+            <Image style={[ListStyles.modelImg, { height: this.imgSize.height < 100 ? this.imgSize.height : 100 }]} source={{ uri: this.source }} />
+        );
+    }
+}
+
+ImageModel.propTypes = propTypes;
 
 class ListModel extends Component {
     constructor(props) {
@@ -60,6 +94,17 @@ class ListModel extends Component {
         }
     }
 
+    outputDescription(value) {
+        let outputTarget;
+        if (value.indexOf('http://www.jary8.com/static') >= 0) {
+            outputTarget = <ImageModel source={value} />;
+        } else {
+            outputTarget = <Text numberOfLines={3} style={ListStyles.modelInfo}>{value}</Text>;
+        }
+
+        return outputTarget;
+    }
+
     render() {
         return (
             <ListView
@@ -80,7 +125,9 @@ class ListModel extends Component {
                                 null
                             }
                         </View>
-                        <Text numberOfLines={3} style={ListStyles.modelInfo}>{rowData.description}</Text>
+                        {
+                            this.outputDescription(rowData.description) 
+                        }
                         {
                             this.listType === 'Article' ?
                             <View style={ListStyles.modelOther}>
@@ -110,4 +157,4 @@ class ListModel extends Component {
 
 ListModel.propTypes = propTypes;
 
-module.exports = ListModel;
+export default ListModel;

@@ -51,4 +51,4 @@ class HeaderModel extends Component {
 
 HeaderModel.propTypes = propTypes;
 
-module.exports = HeaderModel;
+export default HeaderModel;
